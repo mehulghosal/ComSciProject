@@ -2,46 +2,47 @@ public class House{
 
 	private String name;
 	private double yPos; 
-	private double street;
+	private double avenue;
 	
-	public House(String name, double street){
+	public House(String name, double avenue){
 		this.name = name;
+		
 		if(name.equals("A") || name.equals("AA")){
-			yPos = .1;
+			yPos = avenue + .1;
 		}
 		else if(name.equals("B") || name.equals("BB")){
-			yPos = .2;
+			yPos = avenue + .2;
 		}
 		else if(name.equals("C") || name.equals("CC")){
-			yPos = .3;
+			yPos = avenue + .3;
 		}
 		else if(name.equals("D") || name.equals("DD")){
-			yPos = .4;
+			yPos = avenue + .4;
 		}
 		else if(name.equals("E") || name.equals("EE")){
-			yPos = .5;
+			yPos = avenue + .5;
 		}
 		else if(name.equals("F") || name.equals("FF")){
-			yPos = .6;
+			yPos = avenue + .6;
 		}
 		else if(name.equals("G") || name.equals("GG")){
-			yPos = .7;
+			yPos = avenue + .7;
 		}
 		else if(name.equals("H") || name.equals("HH")){
-			yPos = .8;
+			yPos = avenue + .8;
 		}
 		else if(name.equals("I") || name.equals("II")){
-			yPos = .9;
+			yPos = avenue + .9;
 		}
 		else if(name.equals("J") || name.equals("JJ")){
-			yPos = 1.0;
+			yPos = avenue + 1.0;
 		}
 		
-		this.street = street;
+		this.avenue = avenue;
 	}
 	
-	public double getStreet(){
-		return street;
+	public double getAvenue(){
+		return avenue;
 	}
 	
 	public double getYPos(){

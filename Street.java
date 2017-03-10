@@ -6,11 +6,7 @@ public class Street{
 
 	public Street(double streetNumber){
 		this.streetNumber = streetNumber;
-/*		for(int i = 0; i<2000; i++){
-			for (double j =0; j<20; j+= .1){
-				street[i] = new House();
-			}
-		}*/
+
 	}
 
 
