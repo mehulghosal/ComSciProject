@@ -1,57 +1,39 @@
-public class House{
+import java.math.*;
+import java.util.*;
 
-	private String name;
-	private double yPos; 
-	private double avenue;
-	
-	public House(String name, double avenue){
-		this.name = name;
-		
-		if(name.equals("A") || name.equals("AA")){
-			yPos = avenue + .1;
-		}
-		else if(name.equals("B") || name.equals("BB")){
-			yPos = avenue + .2;
-		}
-		else if(name.equals("C") || name.equals("CC")){
-			yPos = avenue + .3;
-		}
-		else if(name.equals("D") || name.equals("DD")){
-			yPos = avenue + .4;
-		}
-		else if(name.equals("E") || name.equals("EE")){
-			yPos = avenue + .5;
-		}
-		else if(name.equals("F") || name.equals("FF")){
-			yPos = avenue + .6;
-		}
-		else if(name.equals("G") || name.equals("GG")){
-			yPos = avenue + .7;
-		}
-		else if(name.equals("H") || name.equals("HH")){
-			yPos = avenue + .8;
-		}
-		else if(name.equals("I") || name.equals("II")){
-			yPos = avenue + .9;
-		}
-		else if(name.equals("J") || name.equals("JJ")){
-			yPos = avenue + 1.0;
-		}
-		
-		this.avenue = avenue;
-	}
-	
-	public double getAvenue(){
-		return avenue;
-	}
-	
-	public double getYPos(){
-		return yPos;
-	}
-	
-	public String getName(){
-		return name;
-	}
+class House {
+    private double x;
+    private double y;
 
+    public double getX() {
+        return x;
+    }
+    public double getY() {
+        return y;
+    }
 
+    public House(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public House(){
+        Random r = new Random();
+        x = r.nextInt(1000);
+        y = r.nextInt(650);
+    }
+
+    public double calculateDistanceToPoint(House p) {
+        double dist = Math.sqrt(Math.pow(this.x-p.x, 2) + Math.pow(this.y-p.y, 2));
+        return round(dist,2);
+    }
+
+    
+    private static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        BigDecimal bd = new BigDecimal(value);
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
+    }
 }
