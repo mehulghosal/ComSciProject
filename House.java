@@ -9,7 +9,9 @@ class House {
         this.x = x;
         this.y = y;
     }
-
+/*hi this is a test frim kevins computer
+    
+    i love slkehfkuWH */  
     public House(){
         Random r = new Random();
         x = r.nextInt(1000);
