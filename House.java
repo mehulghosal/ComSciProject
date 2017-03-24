@@ -1,4 +1,3 @@
-import java.math.*;
 import java.util.*;
 
 class House {
@@ -9,9 +8,7 @@ class House {
         this.x = x;
         this.y = y;
     }
-/*hi this is a test frim kevins computer
-    
-    i love slkehfkuWH */  
+ 
     public House(){
         Random r = new Random();
         x = r.nextInt(1000);
@@ -29,16 +26,8 @@ class House {
     public double calculateDistanceToHouse(House house) {
     	
         double dist = Math.abs(this.x - house.x) + Math.abs(this.y - house.y);
-        return dist; //round(dist, 2);
-        
+        return dist; 
+       
     }
-    
-    private static double round(double value, int places) {
-    	
-        if (places < 0) throw new IllegalArgumentException();
 
-        BigDecimal bd = new BigDecimal(value);
-        bd = bd.setScale(places, RoundingMode.HALF_UP);
-        return bd.doubleValue();
-    }
 }
