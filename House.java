@@ -1,8 +1,8 @@
 import java.util.*;
 
 class House {
-    private double x;
-    private double y;
+    private double x;//x is the street
+    private double y;//y is the avenue plus the house 
 
     public House(double x, double y) {
         this.x = x;
