@@ -23,9 +23,7 @@ public class Main{
 		}
 		
 		int cycleNumber = Integer.parseInt(records.get(0)); //this is the first input -- the cycle number
-		//System.out.println(cycleNumber + " " + records.get(1));
 		
-		//this is giving us an error because it is not a striaght number, it has a comma(not 2350, it is 2,350)
 		int numberOfInputs = Integer.parseInt(records.get(1).replaceAll("[^0-9]", "")); //this is the total number of inputs
 		
 		//this is all to set up the array of houses that need to be visited
@@ -35,14 +33,11 @@ public class Main{
 		int holderAve;
 		double houseAddress = 0;
 		
-		for(int i = 0; i < numberOfInputs-2; i++){ // starts at 2 bc the first(0 and 1) are not inputs
+		for(int i = 0; i < records.size() - 6; i++){ // starts at 2 bc the first(0 and 1) are not inputs
 			
 			holderArray = records.get(i+2).split(",");//splits every line up by commas
-			//how do i split up the numbers and characters -- ascii values? And the numbers can be 1-250
-			System.out.println(holderArray[0].replaceAll("[^0-9]", ""));
 			holderStreet = Integer.parseInt(holderArray[0].replaceAll("[^0-9]", ""));
 			holderAve = Integer.parseInt(holderArray[1].replaceAll("[^0-9]", ""));
-			System.out.println(holderArray[2]);
 			if(holderArray[2].equals("A") || holderArray[2].equals("AA")){
 				houseAddress = 0;
 			}
@@ -73,7 +68,7 @@ public class Main{
 			else if(holderArray[2].equals("J") || holderArray[2].equals("JJ")){
 				houseAddress = .9;
 			}
-			
+						
 			inputs[i] = new House(holderStreet, holderAve + houseAddress);
 		}
 		
