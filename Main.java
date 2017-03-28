@@ -10,7 +10,7 @@ public class Main{
 		
 		try
 		{
-			BufferedReader reader = new BufferedReader(new FileReader("cycle.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("testData.txt"));
 			String line;
 			while ((line = reader.readLine()) != null){
 				records.add(line);
@@ -70,6 +70,7 @@ public class Main{
 			}
 						
 			inputs[i] = new House(holderStreet, holderAve + houseAddress);
+			
 		}
 		
 	}
