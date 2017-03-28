@@ -35,14 +35,14 @@ public class Main{
 		int holderAve;
 		double houseAddress = 0;
 		
-		for(int i = 0; i < numberOfInputs; i++){ // starts at 2 bc the first(0 and 1) are not inputs
+		for(int i = 0; i < numberOfInputs-2; i++){ // starts at 2 bc the first(0 and 1) are not inputs
 			
 			holderArray = records.get(i+2).split(",");//splits every line up by commas
 			//how do i split up the numbers and characters -- ascii values? And the numbers can be 1-250
-			
+			System.out.println(holderArray[0].replaceAll("[^0-9]", ""));
 			holderStreet = Integer.parseInt(holderArray[0].replaceAll("[^0-9]", ""));
 			holderAve = Integer.parseInt(holderArray[1].replaceAll("[^0-9]", ""));
-			
+			System.out.println(holderArray[2]);
 			if(holderArray[2].equals("A") || holderArray[2].equals("AA")){
 				houseAddress = 0;
 			}
@@ -53,7 +53,7 @@ public class Main{
 				houseAddress = .2;
 			}
 			else if(holderArray[2].equals("D") || holderArray[2].equals("DD")){
-				houseAddress = .2;
+				houseAddress = .3;
 			}
 			else if(holderArray[2].equals("E") || holderArray[2].equals("EE")){
 				houseAddress = .4;
@@ -70,7 +70,7 @@ public class Main{
 			else if(holderArray[2].equals("I") || holderArray[2].equals("II")){
 				houseAddress = .8;
 			}
-			else if(holderArray[2].equals("JJ") || holderArray[2].equals("JJ")){
+			else if(holderArray[2].equals("J") || holderArray[2].equals("JJ")){
 				houseAddress = .9;
 			}
 			
