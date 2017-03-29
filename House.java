@@ -23,7 +23,7 @@ class House {
         return y;
     }
 
-    public double calculateDistanceToHouse(House house) {
+    public double distance(House house) {
     	
         double dist = Math.abs(this.x - house.x) + Math.abs(this.y - house.y);
         return dist; 
