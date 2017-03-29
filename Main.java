@@ -4,7 +4,7 @@ import java.io.*;
 public class Main{
 
 	static public void main(String[] args){
-		
+			
 		//this is for the input from the file
 		List<String> records = new ArrayList<String>();
 		
@@ -33,7 +33,7 @@ public class Main{
 		int holderAve;
 		double houseAddress = 0;
 		
-		for(int i = 0; i < records.size() - 6; i++){ // starts at 2 bc the first(0 and 1) are not inputs
+		for(int i = 0; i < records.size() - 6; i++){
 			
 			holderArray = records.get(i+2).split(",");//splits every line up by commas
 			holderStreet = Integer.parseInt(holderArray[0].replaceAll("[^0-9]", ""));
@@ -72,6 +72,9 @@ public class Main{
 			inputs[i] = new House(holderStreet, holderAve + houseAddress);
 			
 		}
+		
+		
+		
 		
 	}
 
