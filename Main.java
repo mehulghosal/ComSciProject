@@ -38,35 +38,37 @@ public class Main{
 			holderArray = records.get(i+2).split(",");//splits every line up by commas
 			holderStreet = Integer.parseInt(holderArray[0].replaceAll("[^0-9]", ""));
 			holderAve = Integer.parseInt(holderArray[1].replaceAll("[^0-9]", ""));
-			if(holderArray[2].equals("A") || holderArray[2].equals("AA")){
+			switch (holderArray[2]) {
+			case("A" || "AA") {
 				houseAddress = 0;
 			}
-			else if(holderArray[2].equals("B") || holderArray[2].equals("BB")){
+			case("B" || "BB") {
 				houseAddress = .1;
 			}
-			else if(holderArray[2].equals("C") || holderArray[2].equals("CC")){
+			case("C" || "CC") {
 				houseAddress = .2;
 			}
-			else if(holderArray[2].equals("D") || holderArray[2].equals("DD")){
+			case("D" || "DD") {
 				houseAddress = .3;
 			}
-			else if(holderArray[2].equals("E") || holderArray[2].equals("EE")){
+			case("E" || "EE") {
 				houseAddress = .4;
 			}
-			else if(holderArray[2].equals("F") || holderArray[2].equals("FF")){
+			case("F" || "FF") {
 				houseAddress = .5;
 			}
-			else if(holderArray[2].equals("G") || holderArray[2].equals("GG")){
+			case("G" || "GG") {
 				houseAddress = .6;
 			}
-			else if(holderArray[2].equals("H") || holderArray[2].equals("HH")){
+			case("H" || "HH") {
 				houseAddress = .7;
 			}
-			else if(holderArray[2].equals("I") || holderArray[2].equals("II")){
+			case("I" || "II") {
 				houseAddress = .8;
 			}
-			else if(holderArray[2].equals("J") || holderArray[2].equals("JJ")){
+			case("J" || "JJ") {
 				houseAddress = .9;
+			}
 			}
 						
 			inputs[i] = new House(holderStreet, holderAve + houseAddress);
