@@ -10,7 +10,7 @@ public class SimulatedAnnealing{
 	
 	//this is for the probablitity that the new distance is accpeted
 	//sim annealing allows for a probability for the new distance to be accepted
-	//as the temperature decreases, the accpetance prob increases
+	//as the temperature decreases, the accpetance prob increases (because you don't want to accept stuff too early and "commit"
 	public static double acceptanceProbability(int currentDistance, int newDistance, double temperature) {
 		// If the new solution is better, accept it
 		if (newDistance < currentDistance) {
@@ -39,6 +39,13 @@ public class SimulatedAnnealing{
 			route[i] = original[random];
 		}
 		
+	}
+	public static double getRouteDistance(House[] route, int numHouses) {
+		double distance = 0;
+		for(int i = 0; i<numHouses-1; i++) {
+			distance+=(route[i].distance(route[i+1]));
+		}
+		return distance;
 	}
 	
 	public static void changeRoute() {
