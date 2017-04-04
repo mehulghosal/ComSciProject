@@ -41,31 +41,31 @@ public class Main{
 			if(holderArray[2].equals("A") || holderArray[2].equals("AA")) {
 				houseAddress = 0;
 			}
-			if(holderArray[2].equals("B") || holderArray[2].equals("BB")) {
+			else if(holderArray[2].equals("B") || holderArray[2].equals("BB")) {
 				houseAddress = .1;
 			}
-			if(holderArray[2].equals("C") || holderArray[2].equals("CC")) {
+			else if(holderArray[2].equals("C") || holderArray[2].equals("CC")) {
 				houseAddress = .2;
 			}
-			if(holderArray[2].equals("D") || holderArray[2].equals("DD")) {
+			else if(holderArray[2].equals("D") || holderArray[2].equals("DD")) {
 				houseAddress = .3;
 			}
-			if(holderArray[2].equals("E") || holderArray[2].equals("EE")) {
+			else if(holderArray[2].equals("E") || holderArray[2].equals("EE")) {
 				houseAddress = .4;
 			}
-			if(holderArray[2].equals("F") || holderArray[2].equals("FF")) {
+			else if(holderArray[2].equals("F") || holderArray[2].equals("FF")) {
 				houseAddress = .5;
 			}
-			if(holderArray[2].equals("G") || holderArray[2].equals("GG")) {
+			else if(holderArray[2].equals("G") || holderArray[2].equals("GG")) {
 				houseAddress = .6;
 			}
-			if(holderArray[2].equals("H") || holderArray[2].equals("HH")) {
+			else if(holderArray[2].equals("H") || holderArray[2].equals("HH")) {
 				houseAddress = .7;
 			}
-			if(holderArray[2].equals("I") || holderArray[2].equals("II")) {
+			else if(holderArray[2].equals("I") || holderArray[2].equals("II")) {
 				houseAddress = .8;
 			}
-			if(holderArray[2].equals("J") || holderArray[2].equals("JJ")) {
+			else if(holderArray[2].equals("J") || holderArray[2].equals("JJ")) {
 				houseAddress = .9;
 			}
 			
