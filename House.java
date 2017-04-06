@@ -1,6 +1,7 @@
 import java.util.*;
 
 class House {
+	
     private double x;//x is the street
     private double y;//y is the avenue plus the house 
 

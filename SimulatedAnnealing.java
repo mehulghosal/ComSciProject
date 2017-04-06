@@ -4,7 +4,7 @@ public class SimulatedAnnealing{
 	
 	private double temperature = 10000; //temperature is basically a counter, but counts down -- setting an intial temperature
 	private double coolingRate = 0.003; //this is the cooling rate -- after every run through, multiply temperature by (1-coolingrate)
-	private double distance = 0;
+	private static double distance = 0;
 	private static House[] route;
 	
 	
@@ -40,12 +40,14 @@ public class SimulatedAnnealing{
 		}
 		
 	}
-	public static double getRouteDistance(House[] route, int numHouses) {
-		double distance = 0;
+	
+	//returns the total distance of the current array
+	public static void setRouteDistance( int numHouses) {
+		
+		distance = 0;
 		for(int i = 0; i<numHouses-1; i++) {
 			distance+=(route[i].distance(route[i+1]));
 		}
-		return distance;
 	}
 	
 	public static void changeRoute() {
