@@ -50,8 +50,22 @@ public class SimulatedAnnealing{
 		}
 	}
 	
-	public static void changeRoute() {
-		
+	public static void randomChangeRoute() {
+		int number = (int)(Math.random()*(numHouses-1));
+		int number2 = (int)(Math.random()*(numHouses-1));
+		while(true) {
+			if(number!=number2) {
+				House holder;
+				holder = route[number];
+				route[number]=route[number2];
+				route[number2]=house;
+				break;
+			}
+			else {
+				number2 = (int)(Math.random()*(numHouses-1));
+			}
+		}
+				
 	}
 	
 	
