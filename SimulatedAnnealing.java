@@ -50,7 +50,7 @@ public class SimulatedAnnealing{
 		}
 	}
 	
-	public static void randomChangeRoute() {
+	public static void randomChangeRoute(int numHouses) {
 		int number = (int)(Math.random()*(numHouses-1));
 		int number2 = (int)(Math.random()*(numHouses-1));
 		while(true) {
@@ -58,7 +58,7 @@ public class SimulatedAnnealing{
 				House holder;
 				holder = route[number];
 				route[number]=route[number2];
-				route[number2]=house;
+				route[number2] = house;//what is this supposed to be?
 				break;
 			}
 			else {
