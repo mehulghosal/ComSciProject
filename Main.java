@@ -74,8 +74,10 @@ public class Main{
 			
 		}
 		
-		
-		
+		SimulatedAnnealing.constructRoute(numberOfInputs-4, inputs);
+		SimulatedAnnealing.setRouteDistance(numberOfInputs-4);
+		double distance = SimulatedAnnealing.getDistance();
+		System.out.println(distance);
 		
 	}
 

@@ -2,11 +2,30 @@ import java.util.*;
 
 public class SimulatedAnnealing{
 	
-	private double temperature = 10000; //temperature is basically a counter, but counts down -- setting an intial temperature
-	private double coolingRate = 0.003; //this is the cooling rate -- after every run through, multiply temperature by (1-coolingrate)
+	private static double temperature = 10000; //temperature is basically a counter, but counts down -- setting an intial temperature
+	private static double coolingRate = 0.003; //this is the cooling rate -- after every run through, multiply temperature by (1-coolingrate)
 	private static double distance = 0;
 	private static House[] route;
 	
+	public static double getDistance(){
+		return distance;
+	}
+	
+	public static House[] getRoute(){
+		return route;
+	}
+	
+	public static double getTemp(){
+		return temperature;
+	}
+	
+	public static double getCoolingRate(){
+		return coolingRate;
+	}
+	
+	public static void setTemperature(double temp){
+		temperature = temp;
+	}
 	
 	//this is for the probablitity that the new distance is accpeted
 	//sim annealing allows for a probability for the new distance to be accepted
@@ -23,15 +42,18 @@ public class SimulatedAnnealing{
 	//this is for the beginning, where the route is made randomly
 	//when implemented, original is the original array of inputs, and numOfHouses is the number of houses
 	public static void constructRoute(int numOfHouses, House[] original) {
-		route = new House[numOfHouses]; 
-		int[] randomChecker = new int[numOfHouses];
+		route = new House[numOfHouses-4]; 
+		int[] randomChecker = new int[numOfHouses-4];
 		
-		for(int i=0; i<numOfHouses; i++){
-			int random = (int) (Math.random()*(numOfHouses));
+		for(int i=0; i<numOfHouses-4; i++){
+			int random = (int) (Math.random()*(numOfHouses-4));
+			System.out.println(random);
 			randomChecker[i] = random;
-			for(int j=0; j<numOfHouses; j++){
+			
+			//this is to check if random has been the same value more than once
+			for(int j=0; j<numOfHouses-4; j++){
 				if (random == randomChecker[j]){
-					i--;
+					i--; 
 					continue;
 				}
 			}
@@ -58,7 +80,7 @@ public class SimulatedAnnealing{
 				House holder;
 				holder = route[number];
 				route[number]=route[number2];
-				route[number2] = house;//what is this supposed to be?
+				route[number2] = holder;//what is this supposed to be?
 				break;
 			}
 			else {
