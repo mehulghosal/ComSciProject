@@ -27,6 +27,10 @@ public class SimulatedAnnealing{
 		temperature = temp;
 	}
 	
+	public static void setRoute(House[] holderRoute){
+		route = holderRoute;
+	}
+	
 	/*
 	this is for the probablitity that the new distance is accpeted
 	sim annealing allows for a probability for the new distance to be accepted

@@ -83,7 +83,7 @@ public class Main{
 		double distNext;
 		double distFinal = distOriginal;
 		
-		//int count = 0;
+		House[] holder = SimulatedAnnealing.getRoute();
 		
 		while(SimulatedAnnealing.getTemp() > 0.00000001){
 			
@@ -93,6 +93,10 @@ public class Main{
 			
 			if(distNext<distFinal){
 				distFinal = distNext;
+				holder = SimulatedAnnealing.getRoute();
+			}
+			else{
+				SimulatedAnnealing.setRoute(holder);
 			}
 			
 			/*
@@ -105,24 +109,32 @@ public class Main{
 		}
 		System.out.println("original distance: "+ distOriginal);
 		System.out.println("final distance:" + distFinal);
+		
 		// maybe go through it a few times to get an optimal answer
 		
-		
+		/*
 		distOriginal = distFinal;
 		SimulatedAnnealing.setTemperature(10000);
-		while(SimulatedAnnealing.getTemp() > 0.0001){
+		
+		while(SimulatedAnnealing.getTemp() > 0.00001){
 			
 			SimulatedAnnealing.randomChangeRoute();
 			SimulatedAnnealing.setRouteDistance();
 			distNext = SimulatedAnnealing.getDistance();
+			
 			if(distNext<distFinal){
 				distFinal = distNext;
+				holder = SimulatedAnnealing.getRoute();
+			}
+			else{
+				SimulatedAnnealing.setRoute(holder);
 			}
 			
-			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1-0.0003));
+			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1-0.00003));
 			
 		}
 		System.out.println("final distance run 2:" + distFinal);
+		*/
 		
 	}
 
