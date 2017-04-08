@@ -26,6 +26,7 @@ public class Main{
 		
 		int numberOfInputs = Integer.parseInt(records.get(1).replaceAll("[^0-9]", "")); //this is the total number of inputs
 		
+		
 		//this is all to set up the array of houses that need to be visited
 		House[] inputs = new House[numberOfInputs];
 		String[] holderArray;
@@ -74,10 +75,54 @@ public class Main{
 			
 		}
 		
-		SimulatedAnnealing.constructRoute(numberOfInputs-4, inputs);
-		SimulatedAnnealing.setRouteDistance(numberOfInputs-4);
-		double distance = SimulatedAnnealing.getDistance();
-		System.out.println(distance);
+		//heyyyy tis working
+		SimulatedAnnealing.constructRoute(inputs);
+		SimulatedAnnealing.setRouteDistance();
+		double distOriginal = SimulatedAnnealing.getDistance();
+		//System.out.println("original distance: " + distOriginal);
+		double distNext;
+		double distFinal = distOriginal;
+		
+		//int count = 0;
+		
+		while(SimulatedAnnealing.getTemp() > 0.00000001){
+			
+			SimulatedAnnealing.randomChangeRoute();
+			SimulatedAnnealing.setRouteDistance();
+			distNext = SimulatedAnnealing.getDistance();
+			
+			if(distNext<distFinal){
+				distFinal = distNext;
+			}
+			
+			/*
+			if(SimulatedAnnealing.acceptanceProbability(distOriginal, distNext) > r){
+				distFinal = distNext;
+			}
+			*/
+			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1-0.000001));
+			
+		}
+		System.out.println("original distance: "+ distOriginal);
+		System.out.println("final distance:" + distFinal);
+		// maybe go through it a few times to get an optimal answer
+		
+		
+		distOriginal = distFinal;
+		SimulatedAnnealing.setTemperature(10000);
+		while(SimulatedAnnealing.getTemp() > 0.0001){
+			
+			SimulatedAnnealing.randomChangeRoute();
+			SimulatedAnnealing.setRouteDistance();
+			distNext = SimulatedAnnealing.getDistance();
+			if(distNext<distFinal){
+				distFinal = distNext;
+			}
+			
+			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1-0.0003));
+			
+		}
+		System.out.println("final distance run 2:" + distFinal);
 		
 	}
 

@@ -23,12 +23,9 @@ class House {
     public double getY() {
         return y;
     }
-
+    
     public double distance(House house) {
-    	
-        double dist = Math.abs(this.x - house.x) + Math.abs(this.y - house.y);
-        return dist; 
-       
+    	return Math.abs(this.x - house.x) + Math.abs(this.y - house.y);
     }
 
 }
