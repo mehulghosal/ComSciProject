@@ -87,7 +87,7 @@ public class Main{
 		
 		House[] holder = SimulatedAnnealing.getRoute();
 		
-		while(SimulatedAnnealing.getTemp() > 0.00000001){
+		while(SimulatedAnnealing.getTemp() > 1){
 			
 			SimulatedAnnealing.randomChangeRoute();
 			SimulatedAnnealing.setRouteDistance();
@@ -98,7 +98,7 @@ public class Main{
 				holder = SimulatedAnnealing.getRoute();
 			}
 			else{
-				if(SimulatedAnnealing.acceptanceProbability(distNext, distFinal)<Math.random()) {
+				if(SimulatedAnnealing.acceptanceProbability(distFinal, distNext) > Math.random()) {
 					distFinal = distNext;
 					holder = SimulatedAnnealing.getRoute();
 				}
@@ -113,6 +113,7 @@ public class Main{
 			}
 			*/
 			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1-0.000001));
+			System.out.println(distFinal);
 			
 		}
 		System.out.println("original distance: "+ distOriginal);

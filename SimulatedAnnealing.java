@@ -42,7 +42,6 @@ public class SimulatedAnnealing{
 			return 1.0;
 		}
 		// If the new solution is worse, calculate an acceptance probability
-		System.out.println(Math.exp((distOriginal - distNext) / temperature));
 		return Math.exp((distOriginal - distNext) / temperature);
 	}
 	
