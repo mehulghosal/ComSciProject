@@ -33,7 +33,7 @@ public class Main{
 		int holderAve;
 		double houseAddress = 0;
 		
-		for(int i = 0; i < records.size() - 5; i++){
+		for(int i = 0; i < records.size() - 6; i++){
 			
 			holderArray = records.get(i+2).split(",");//splits every line up by commas
 			holderStreet = Integer.parseInt(holderArray[0].replaceAll("[^0-9]", ""));
@@ -98,7 +98,13 @@ public class Main{
 				holder = SimulatedAnnealing.getRoute();
 			}
 			else{
-				SimulatedAnnealing.setRoute(holder);
+				if(SimulatedAnnealing.acceptanceProbability(distNext, distFinal)<Math.random()) {
+					distFinal = distNext;
+					holder = SimulatedAnnealing.getRoute();
+				}
+				else {
+					SimulatedAnnealing.setRoute(holder);
+				}
 			}
 			
 			/*
@@ -112,31 +118,7 @@ public class Main{
 		System.out.println("original distance: "+ distOriginal);
 		System.out.println("final distance:" + distFinal);
 		
-		// maybe go through it a few times to get an optimal answer
 		
-		/*
-		distOriginal = distFinal;
-		SimulatedAnnealing.setTemperature(10000);
-		
-		while(SimulatedAnnealing.getTemp() > 0.00001){
-			
-			SimulatedAnnealing.randomChangeRoute();
-			SimulatedAnnealing.setRouteDistance();
-			distNext = SimulatedAnnealing.getDistance();
-			
-			if(distNext<distFinal){
-				distFinal = distNext;
-				holder = SimulatedAnnealing.getRoute();
-			}
-			else{
-				SimulatedAnnealing.setRoute(holder);
-			}
-			
-			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1-0.00003));
-			
-		}
-		System.out.println("final distance run 2:" + distFinal);
-		*/
 		
 	}
 
