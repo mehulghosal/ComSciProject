@@ -8,8 +8,7 @@ public class Main{
 		//this is for the input from the file
 		List<String> records = new ArrayList<String>();
 		
-		try
-		{
+		try{
 			BufferedReader reader = new BufferedReader(new FileReader("testData.txt"));
 			String line;
 			while ((line = reader.readLine()) != null){
@@ -34,7 +33,7 @@ public class Main{
 		int holderAve;
 		double houseAddress = 0;
 		
-		for(int i = 0; i < records.size() - 6; i++){
+		for(int i = 0; i < records.size() - 5; i++){
 			
 			holderArray = records.get(i+2).split(",");//splits every line up by commas
 			holderStreet = Integer.parseInt(holderArray[0].replaceAll("[^0-9]", ""));
@@ -74,6 +73,9 @@ public class Main{
 			inputs[i] = new House(holderStreet, holderAve + houseAddress);
 			
 		}
+		
+		//System.out.println(records.get(2337));
+		//System.out.println(inputs[2334]);
 		
 		//heyyyy tis working
 		SimulatedAnnealing.constructRoute(inputs);
