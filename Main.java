@@ -9,7 +9,7 @@ public class Main{
 		List<String> records = new ArrayList<String>();
 		
 		try{
-			BufferedReader reader = new BufferedReader(new FileReader("testData.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("cycle.txt"));
 			String line;
 			while ((line = reader.readLine()) != null){
 				records.add(line);
@@ -107,19 +107,23 @@ public class Main{
 				}
 			}
 			
-			/*
-			if(SimulatedAnnealing.acceptanceProbability(distOriginal, distNext) > r){
-				distFinal = distNext;
-			}
-			*/
-			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1-0.000001));
+			
+			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1-0.0001));
 			System.out.println(distFinal);
 			
 		}
 		System.out.println("original distance: "+ distOriginal);
 		System.out.println("final distance:" + distFinal);
 		
-		
+		try{
+		    PrintWriter writer = new PrintWriter("results.txt", "UTF-8");
+		    writer.print("Original distance for run " + cycleNumber + " is " + distOriginal);
+		    writer.println("Final distance for run " + cycleNumber + " is " + distFinal + ". The number of houses was " + inputs.length);
+		    writer.close();
+		} 
+		catch (IOException e) {
+		   System.out.println("There was an error");
+		}
 		
 	}
 
