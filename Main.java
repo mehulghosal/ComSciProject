@@ -9,7 +9,7 @@ public class Main{
 		List<String> records = new ArrayList<String>();
 		
 		try{
-			BufferedReader reader = new BufferedReader(new FileReader("cycle.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("testData2.txt"));
 			String line;
 			while ((line = reader.readLine()) != null){
 				records.add(line);
@@ -74,18 +74,17 @@ public class Main{
 			
 		}
 		
-		//System.out.println(records.get(2337));
-		//System.out.println(inputs[2334]);
 		
 		//heyyyy tis working
 		SimulatedAnnealing.constructRoute(inputs);
 		SimulatedAnnealing.setRouteDistance();
 		double distOriginal = SimulatedAnnealing.getDistance();
-		//System.out.println("original distance: " + distOriginal);
 		double distNext;
 		double distFinal = distOriginal;
+		double finalfinal = 999999999;
 		
 		House[] holder = SimulatedAnnealing.getRoute();
+		
 		
 		while(SimulatedAnnealing.getTemp() > 1){
 			
@@ -96,11 +95,18 @@ public class Main{
 			if(distNext<distFinal){
 				distFinal = distNext;
 				holder = SimulatedAnnealing.getRoute();
+				if(distFinal<finalfinal) {
+					finalfinal = distFinal;
+				}
+				
 			}
 			else{
 				if(SimulatedAnnealing.acceptanceProbability(distFinal, distNext) > Math.random()) {
 					distFinal = distNext;
 					holder = SimulatedAnnealing.getRoute();
+					if(distFinal<finalfinal) {
+						finalfinal = distFinal;
+					}
 				}
 				else {
 					SimulatedAnnealing.setRoute(holder);
@@ -108,22 +114,15 @@ public class Main{
 			}
 			
 			
-			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1-0.0001));
+			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1-00000.1));
 			System.out.println(distFinal);
 			
 		}
 		System.out.println("original distance: "+ distOriginal);
 		System.out.println("final distance:" + distFinal);
+		System.out.println("The best distance was " + finalfinal);
 		
-		try{
-		    PrintWriter writer = new PrintWriter("results.txt", "UTF-8");
-		    writer.print("Original distance for run " + cycleNumber + " is " + distOriginal);
-		    writer.println("Final distance for run " + cycleNumber + " is " + distFinal + ". The number of houses was " + inputs.length);
-		    writer.close();
-		} 
-		catch (IOException e) {
-		   System.out.println("There was an error");
-		}
+
 		
 	}
 
