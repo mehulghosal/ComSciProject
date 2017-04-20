@@ -6,8 +6,8 @@ class House {
     private double y;//y is the avenue plus the house 
 
     public House(double x, double y) {
-        this.x = x;
-        this.y = y;
+        this.x = x*200;
+        this.y = y*1000;
     }
  
     public House(){

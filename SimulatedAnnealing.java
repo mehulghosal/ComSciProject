@@ -3,7 +3,6 @@ import java.util.*;
 public class SimulatedAnnealing{
 	
 	private static double temperature = 10000; //temperature is basically a counter, but counts down -- setting an intial temperature
-	private static double coolingRate = 0.003; //this is the cooling rate -- after every run through, multiply temperature by (1-coolingrate)
 	private static double distance;
 	private static House[] route;
 	
@@ -17,10 +16,6 @@ public class SimulatedAnnealing{
 	
 	public static double getTemp(){
 		return temperature;
-	}
-	
-	public static double getCoolingRate(){
-		return coolingRate;
 	}
 	
 	public static void setTemperature(double temp){
@@ -42,7 +37,7 @@ public class SimulatedAnnealing{
 			return 1.0;
 		}
 		// If the new solution is worse, calculate an acceptance probability
-		return Math.exp((distOriginal - distNext) / temperature);
+		return Math.exp((distOriginal - distNext)/347.16 / temperature);
 	}
 	
 	

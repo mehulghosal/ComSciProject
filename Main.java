@@ -114,7 +114,7 @@ public class Main{
 			}
 			
 			
-			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1-00000.1));
+			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (0.9999));
 			System.out.println(distFinal);
 			
 		}
