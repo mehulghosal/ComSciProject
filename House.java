@@ -10,12 +10,6 @@ class House {
         this.y = y*1000;
     }
  
-    public House(){
-        Random r = new Random();
-        x = r.nextInt(1000);
-        y = r.nextInt(1000);
-    }
-
     public double getX() {
         return x;
     }

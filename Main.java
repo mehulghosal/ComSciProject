@@ -9,7 +9,7 @@ public class Main{
 		List<String> records = new ArrayList<String>();
 		
 		try{
-			BufferedReader reader = new BufferedReader(new FileReader("testData2.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("cycle.txt"));
 			String line;
 			while ((line = reader.readLine()) != null){
 				records.add(line);
@@ -114,7 +114,7 @@ public class Main{
 			}
 			
 			
-			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (0.9999));
+			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1 - 0.001));
 			System.out.println(distFinal);
 			
 		}
