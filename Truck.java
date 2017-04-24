@@ -4,6 +4,7 @@ public class Truck {
 	private double time = 0; //cumulative -- add on to total and reset it when restarting
 	private double x = 125 * 200; //for moving the truck, this is the street its on, starts at distribution center
 	private double y = 22 * 1000; //for moving the truck, this is the ave its on, starts at distribution center
+	private House currentLocation;
 	
 	public void setTime(double time){
 		this.time = time;
@@ -29,5 +30,12 @@ public class Truck {
 		return y;
 	}
 	
+	public void move(House from){
+		currentLocation = from;
+	}
+	
+	public void honk(){
+		System.out.println( "Beep Beep");
+	}
 	
 }

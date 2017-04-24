@@ -2,14 +2,18 @@ import java.util.*;
 import java.io.*;
 
 public class Main{
+	
 
 	static public void main(String[] args){
-			
+		
+		double moneySpent = 0;
+		double time = 0;//in seconds
+		
 		//this is for the input from the file
 		List<String> records = new ArrayList<String>();
 		
 		try{
-			BufferedReader reader = new BufferedReader(new FileReader("cycle.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("testData2.txt"));
 			String line;
 			while ((line = reader.readLine()) != null){
 				records.add(line);
@@ -23,7 +27,7 @@ public class Main{
 		
 		int cycleNumber = Integer.parseInt(records.get(0)); //this is the first input -- the cycle number
 		
-		int numberOfInputs = Integer.parseInt(records.get(1).replaceAll("[^0-9]", "")); //this is the total number of inputs
+		int numberOfInputs = Integer.parseInt(records.get(1).replaceAll("[^0-9]", "")) + 2; //this is the total number of inputs
 		
 		
 		//this is all to set up the array of houses that need to be visited
@@ -74,6 +78,14 @@ public class Main{
 			
 		}
 		
+		//Bart and lisa
+		inputs[inputs.length - 2] = new House(2, 3);//bart
+		inputs[inputs.length -1] = new House(149, 33);//lisa
+		
+		double bartInputs = Double.parseDouble(records.get(records.size() - 3));
+		double lisaInputs = Double.parseDouble(records.get(records.size() - 1));
+		
+		
 		
 		//heyyyy tis working
 		SimulatedAnnealing.constructRoute(inputs);
@@ -86,7 +98,7 @@ public class Main{
 		House[] holder = SimulatedAnnealing.getRoute();
 		
 		
-		while(SimulatedAnnealing.getTemp() > 1){
+		while(SimulatedAnnealing.getTemp() > 0.0001){
 			
 			SimulatedAnnealing.randomChangeRoute();
 			SimulatedAnnealing.setRouteDistance();
@@ -114,7 +126,7 @@ public class Main{
 			}
 			
 			
-			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1 - 0.001));
+			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1 - 0.00001));
 			System.out.println(distFinal);
 			
 		}
