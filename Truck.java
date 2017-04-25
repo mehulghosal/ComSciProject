@@ -35,7 +35,7 @@ public class Truck {
 	}
 	
 	public void honk(){
-		System.out.println( "Beep Beep");
+		System.out.println("Beep Beep");
 	}
 	
 }

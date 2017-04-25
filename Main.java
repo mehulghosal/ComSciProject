@@ -133,6 +133,9 @@ public class Main{
 		System.out.println("original distance: "+ distOriginal);
 		System.out.println("final distance:" + distFinal);
 		System.out.println("The best distance was " + finalfinal);
+        
+        double xz = SimulatedAnnealing.getDistance();
+        SimulatedAnnealing.setDistance(SimulatedAnnealing.getDistance()+)
 		
 
 		
