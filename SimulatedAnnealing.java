@@ -49,7 +49,7 @@ public class SimulatedAnnealing{
 	public static void constructRoute(House[] original) {
 		route = new House[original.length+2]; 
 		route[0] = new House(125,22); //start at distribution center
-		for(int i=0; i<route.length-3; i++){
+		for(int i=0; i<route.length-2; i++){
 			route[i+1] = original[i];	
 		}
 		route[route.length-1] = new House(125,22);
