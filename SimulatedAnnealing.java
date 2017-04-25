@@ -67,11 +67,11 @@ public class SimulatedAnnealing{
 	
 	public static void randomChangeRoute() {
 		int number = 0; 
-		while(number==0 && number==(route.length-1)) {
+		while(number==0 || number==(route.length-1)) {
 			number = (int)(Math.random()*(route.length-1));
 		}
 		int number2 = 0;
-		while(number2==0 && number2==(route.length-1)) {
+		while(number2==0 || number2==(route.length-1)) {
 			number2 = (int)(Math.random()*(route.length-1));
 		}
 		House holder;
