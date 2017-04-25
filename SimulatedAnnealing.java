@@ -47,20 +47,21 @@ public class SimulatedAnnealing{
 	changed this method to use araylists, now works
 	*/
 	public static void constructRoute(House[] original) {
-		route = new House[original.length]; 
-		ArrayList<Integer> randomChecker = new ArrayList<Integer>(original.length);
-		
-		for(int i=0; i<original.length-1; i++){
+		route = new House[original.length+2]; 
+		ArrayList<Integer> randomChecker = new ArrayList<Integer>(original.length-2);
+		route[0] = new House(125,22); //start at distribution center
+		for(int i=0; i<original.length-3; i++){
 			int random = (int) (Math.random()*(original.length));
 			if(randomChecker.contains(random)){
 				i--;
 				continue;
 			}	
 			randomChecker.add(random);
-			route[i] = original[random];
+			route[i+1] = original[random];
 			
 			
 		}
+		route[route.length-1] = new House(125,22);
 		
 	}
 	
@@ -74,20 +75,17 @@ public class SimulatedAnnealing{
 	}
 	
 	public static void randomChangeRoute() {
-		int number = (int)(Math.random()*(route.length-1));
-		int number2 = (int)(Math.random()*(route.length-1));
-		while(true) {
-			if(number!=number2) {
-				House holder;
-				holder = route[number];
-				route[number]=route[number2];
-				route[number2] = holder;//what is this supposed to be?
-				break;
-			}
-			else {
-				number2 = (int)(Math.random()*(route.length-1));
-			}
+		int number; 
+		while(number!=0 && number!=(route.length-1) {
+			number = (int)(Math.random()*(route.length-1));
 		}
+		while(number2!=0 && number2!=(route.length-1) {
+			number2 = (int)(Math.random()*(route.length-1));
+		}
+		House holder;
+		holder = route[number];
+		route[number]=route[number2];
+		route[number2] = holder;
 				
 	}
 	
