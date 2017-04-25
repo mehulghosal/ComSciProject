@@ -27,7 +27,7 @@ public class Main{
 		
 		int cycleNumber = Integer.parseInt(records.get(0)); //this is the first input -- the cycle number
 		
-		int numberOfInputs = Integer.parseInt(records.get(1).replaceAll("[^0-9]", "")) + 4; //this is the total number of inputs
+		int numberOfInputs = Integer.parseInt(records.get(1).replaceAll("[^0-9]", "")) + 2; //this is the total number of inputs
 		
 		
 		//this is all to set up the array of houses that need to be visited
@@ -37,7 +37,7 @@ public class Main{
 		int holderAve;
 		double houseAddress = 0;
 		
-		inputs[0] = new House(125,22); //start at distribution center
+		
 		
 		for(int i = 0; i < records.size() - 6; i++){
 			
@@ -76,14 +76,13 @@ public class Main{
 			}
 			
 						
-			inputs[i+1] = new House(holderStreet, holderAve + houseAddress);
+			inputs[i] = new House(holderStreet, holderAve + houseAddress);
 			
 		}
 		
 		//Bart and lisa
-		inputs[inputs.length - 3] = new House(2, 3);//bart
-		inputs[inputs.length -2] = new House(149, 33);//lisa
-		inputs[inputs.length -1] = new House(125,22); //end at distr. center
+		inputs[inputs.length - 2] = new House(2, 3);//bart
+		inputs[inputs.length -1] = new House(149, 33);//lisa
 		
 		double bartInputs = Double.parseDouble(records.get(records.size() - 3));
 		double lisaInputs = Double.parseDouble(records.get(records.size() - 1));
