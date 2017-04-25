@@ -42,24 +42,15 @@ public class SimulatedAnnealing{
 	
 	
 	/*
-	this is for the beginning, where the route is made randomly
+	this is for the beginning, where the route is made 
 	when implemented, original is the original array of inputs, and numOfHouses is the number of houses
 	changed this method to use araylists, now works
 	*/
 	public static void constructRoute(House[] original) {
 		route = new House[original.length+2]; 
-		ArrayList<Integer> randomChecker = new ArrayList<Integer>(original.length-2);
 		route[0] = new House(125,22); //start at distribution center
 		for(int i=0; i<route.length-3; i++){
-			int random = (int) (Math.random()*(route.length-3));
-			if(randomChecker.contains(random)){
-				i--;
-				continue;
-			}	
-			randomChecker.add(random);
-			route[i+1] = original[random];
-			
-			
+			route[i+1] = original[i];	
 		}
 		route[route.length-1] = new House(125,22);
 		
