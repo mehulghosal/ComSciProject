@@ -50,8 +50,8 @@ public class SimulatedAnnealing{
 		route = new House[original.length+2]; 
 		ArrayList<Integer> randomChecker = new ArrayList<Integer>(original.length-2);
 		route[0] = new House(125,22); //start at distribution center
-		for(int i=0; i<original.length-3; i++){
-			int random = (int) (Math.random()*(original.length));
+		for(int i=0; i<route.length-3; i++){
+			int random = (int) (Math.random()*(route.length-3));
 			if(randomChecker.contains(random)){
 				i--;
 				continue;
