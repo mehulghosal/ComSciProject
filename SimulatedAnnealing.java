@@ -59,11 +59,8 @@ public class SimulatedAnnealing{
 				
 			randomChecker.add(x);
 			route[i+1] = original[x];
-			System.out.println(i);
-			System.out.println(original.length-1);
-
 		}
-		System.out.println("terminates");
+
 		/*
 		route = new House[original.length]; 
 		ArrayList<Integer> randomChecker = new ArrayList<Integer>(original.length);
