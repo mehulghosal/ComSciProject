@@ -13,7 +13,7 @@ public class Main{
 		List<String> records = new ArrayList<String>();
 		
 		try{
-			BufferedReader reader = new BufferedReader(new FileReader("testData2.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("cycle.txt"));
 			String line;
 			while ((line = reader.readLine()) != null){
 				records.add(line);
@@ -95,12 +95,13 @@ public class Main{
 		double distOriginal = SimulatedAnnealing.getDistance();
 		double distNext;
 		double distFinal = distOriginal;
-		double finalfinal = 999999999;
+		double finalfinal = SimulatedAnnealing.getDistance();
+		double x = SimulatedAnnealing.getDistance();
 		
 		House[] holder = SimulatedAnnealing.getRoute();
+		House[] bestRoute = SimulatedAnnealing.getRoute();
 		
-		
-		while(SimulatedAnnealing.getTemp() > 0.0001){
+		while(SimulatedAnnealing.getTemp() > 0.000001){
 			
 			SimulatedAnnealing.randomChangeRoute();
 			SimulatedAnnealing.setRouteDistance();
@@ -111,6 +112,9 @@ public class Main{
 				holder = SimulatedAnnealing.getRoute();
 				if(distFinal<finalfinal) {
 					finalfinal = distFinal;
+					if(SimulatedAnnealing.getDistance()<finalfinal) {
+						bestRoute = SimulatedAnnealing.getRoute();
+					}
 				}
 				
 			}
@@ -118,9 +122,6 @@ public class Main{
 				if(SimulatedAnnealing.acceptanceProbability(distFinal, distNext) > Math.random()) {
 					distFinal = distNext;
 					holder = SimulatedAnnealing.getRoute();
-					if(distFinal<finalfinal) {
-						finalfinal = distFinal;
-					}
 				}
 				else {
 					SimulatedAnnealing.setRoute(holder);
@@ -128,14 +129,14 @@ public class Main{
 			}
 			
 			
-			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1 - 0.00001));
+			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1 - 0.000001));
 			System.out.println(distFinal);
 			
 		}
 		System.out.println("original distance: "+ distOriginal);
 		System.out.println("final distance:" + distFinal);
 		System.out.println("The best distance was " + finalfinal);
-
+		System.out.println(x);
 		
 
 		

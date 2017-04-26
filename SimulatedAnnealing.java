@@ -37,7 +37,7 @@ public class SimulatedAnnealing{
 			return 1.0;
 		}
 		// If the new solution is worse, calculate an acceptance probability
-		return Math.exp((distOriginal - distNext)/347.16 / temperature);
+		return Math.exp((distOriginal - distNext)/100 / temperature);
 	}
 	
 	
@@ -59,21 +59,24 @@ public class SimulatedAnnealing{
 	//returns the total distance of the current array
 	public static void setRouteDistance() {
 		
-		distance = 0;
+		distance = 	0;
 		for(int i = 0; i<route.length-2; i++) {
 			distance+=(route[i].distance(route[i+1]));
 		}
 	}
 	
 	public static void randomChangeRoute() {
+		
 		int number = 0; 
 		while(number==0 || number==(route.length-1)) {
 			number = (int)(Math.random()*(route.length-1));
 		}
+		
 		int number2 = 0;
 		while(number2==0 || number2==(route.length-1)) {
 			number2 = (int)(Math.random()*(route.length-1));
 		}
+		
 		House holder;
 		holder = route[number];
 		route[number]=route[number2];

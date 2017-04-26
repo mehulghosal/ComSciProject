@@ -1,4 +1,0 @@
-Cycle Number: 1
-Number of houses: 10
-Original Distance: 638.9
-Final Distance: 233.2
