@@ -60,7 +60,7 @@ public class SimulatedAnnealing{
 			randomChecker.add(x);
 			route[i+1] = original[x];
 			System.out.println(i);
-			System.out.println(route.length-2);
+			System.out.println(original.length);
 
 		}
 		System.out.println("terminates");
