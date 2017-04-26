@@ -57,11 +57,12 @@ public class SimulatedAnnealing{
 				continue;
 			}
 				
-		randomChecker.add(x);
-		route[i+1] = original[x];
+			randomChecker.add(x);
+			route[i+1] = original[x];
+			System.out.println(i);
 
 		}
-		System.out.println("done");
+
 	/*	route[0] = new House(125,22); //start at distribution center
 		for(int i=0; i<route.length-2; i++){
 			route[i+1] = original[i];	
