@@ -51,7 +51,7 @@ public class SimulatedAnnealing{
 		route[0] = new House(125,22);
 		ArrayList<Integer> randomChecker = new ArrayList<Integer>();
 		for(int i = 0; i<original.length-1; i++) {
-			int x = (int)(Math.random()*(original.length-1));
+			int x = (int)(Math.random()*(original.length));
 			if(randomChecker.contains(x)) {
 				i--;
 				continue;
@@ -64,6 +64,19 @@ public class SimulatedAnnealing{
 
 		}
 		System.out.println("terminates");
+		/*
+		route = new House[original.length]; 
+		ArrayList<Integer> randomChecker = new ArrayList<Integer>(original.length);
+		
+		for(int i=0; i<original.length-1; i++){
+			int random = (int) (Math.random()*(original.length));
+			if(randomChecker.contains(random)){
+				i--;
+				continue;
+			}	
+			randomChecker.add(random);
+		route[i] = original[random];
+		*/
 
 	/*	route[0] = new House(125,22); //start at distribution center
 		for(int i=0; i<route.length-2; i++){
