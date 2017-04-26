@@ -37,7 +37,7 @@ public class SimulatedAnnealing{
 			return 1.0;
 		}
 		// If the new solution is worse, calculate an acceptance probability
-		return Math.exp((distOriginal - distNext)/100 / temperature);
+		return Math.exp((distOriginal - distNext) / temperature);
 	}
 	
 	
@@ -48,10 +48,24 @@ public class SimulatedAnnealing{
 	*/
 	public static void constructRoute(House[] original) {
 		route = new House[original.length+2]; 
-		route[0] = new House(125,22); //start at distribution center
+		
+		ArrayList<Integer> randomChecker = new ArrayList<Integer>();
+		for(int i = 0; i<route.length-3; i++) {
+			int x = (int)(Math.random()*(original.length-1));
+			if(randomChecker.contains(x)) {
+				i--;
+				continue;
+			}
+				
+				randomChecker.add(x);
+				route[i+1] = original[x];
+
+		}
+		
+	/*	route[0] = new House(125,22); //start at distribution center
 		for(int i=0; i<route.length-2; i++){
 			route[i+1] = original[i];	
-		}
+		}*/
 		route[route.length-1] = new House(125,22);
 		
 	}
