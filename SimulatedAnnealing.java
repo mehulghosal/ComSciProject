@@ -55,7 +55,7 @@ public class SimulatedAnnealing{
 			if(randomChecker.contains(x)) {
 				i--;
 				continue;
-		}
+			}
 				
 		randomChecker.add(x);
 		route[i+1] = original[x];
@@ -73,7 +73,7 @@ public class SimulatedAnnealing{
 	//returns the total distance of the current array
 	public static void setRouteDistance() {
 		
-		distance = 	0;
+		distance = 0;
 		for(int i = 0; i<route.length-2; i++) {
 			distance+=(route[i].distance(route[i+1]));
 		}
