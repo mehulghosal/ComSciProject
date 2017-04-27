@@ -12,14 +12,14 @@ public class Truck {
 	private boolean rental;
 	private int houses;
 	
-	public Truck(House[] route, int numHouses, int bartIn, int lisaIn, boolean b, boolean l, boolean r) {
+	public Truck(House[] route, double dist, int numHouses, int bartIn, int lisaIn, boolean b, boolean l, boolean r) {
 		truckRoute = route;
 		bartInputs = bartIn;
 		lisaInputs = lisaIn;
 		bart = b;
 		lisa = l;
 		rental = r;
-		distance = truckRoute.getDistance();
+		distance = dist;
 	}
 	
 	public double calcTime() {
@@ -31,6 +31,7 @@ public class Truck {
 		if(lisa) {
 			time+=(lisa*30);
 		}
+		return time;
 	}
 	public double calcCost() {
 		cost+=(distance/1000)+((int)(distance/5000))*10;
@@ -45,6 +46,7 @@ public class Truck {
 				cost+=45;
 			}
 		}
+		return cost;
 	}
 	
 	
