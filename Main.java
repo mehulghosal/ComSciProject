@@ -138,7 +138,7 @@ public class Main{
 		System.out.println("The best distance was " + finalfinal);
 		System.out.println(x);
 		
-		Truck firstTruck = new Truck(bestRoute, numberOfInputs, bartInputs, lisaInputs, true, true, false);
+		Truck firstTruck = new Truck(bestRoute, finalfinal, numberOfInputs, bartInputs, lisaInputs, true, true, false);
 		
 		System.out.println("Time is " + firstTruck.calcTime());
 		System.out.println("Cost is " + firstTruck.calcCost());
