@@ -26,17 +26,17 @@ public class Truck {
 		time+= (distance)/(100.0/3);
 		time+= houses*60;
 		if(bart) {
-			time+=(bartIn*30);
+			time+=(bartInputs*30);
 		}
 		if(lisa) {
-			time+=(lisa*30);
+			time+=(lisaInputs*30);
 		}
 		return time;
 	}
 	public double calcCost() {
 		cost+=(distance/1000)+((int)(distance/5000))*10;
 		if(rental) {
-			cost+=15000
+			cost+=15000;
 		}
 		for(int i = 1; i<=(time/3600); i++) {
 			if(i<=8) {

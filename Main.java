@@ -84,8 +84,8 @@ public class Main{
 		inputs[inputs.length - 2] = new House(2, 3);//bart
 		inputs[inputs.length -1] = new House(149, 33);//lisa
 		
-		double bartInputs = Double.parseDouble(records.get(records.size() - 3));
-		double lisaInputs = Double.parseDouble(records.get(records.size() - 1));
+		int bartInputs = Integer.parseInt(records.get(records.size() - 3));
+		int lisaInputs = Integer.parseInt(records.get(records.size() - 1));
 		
 		
 		
@@ -101,7 +101,7 @@ public class Main{
 		House[] holder = SimulatedAnnealing.getRoute();
 		House[] bestRoute = SimulatedAnnealing.getRoute();
 		
-		while(SimulatedAnnealing.getTemp() > 0.000001){
+		while(SimulatedAnnealing.getTemp() > 0.001){
 			
 			SimulatedAnnealing.randomChangeRoute();
 			SimulatedAnnealing.setRouteDistance();
@@ -129,7 +129,7 @@ public class Main{
 			}
 			
 			
-			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1 - 0.000001));
+			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1 - 0.001));
 			System.out.println(distFinal);
 			
 		}
