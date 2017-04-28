@@ -94,6 +94,7 @@ public class SimulatedAnnealing{
 	
 	public static void randomChangeRoute() {
 		
+		for(int i = 0; i<(temperature/2000; i++) {
 		int number = 0; 
 		while(number==0 || number==(route.length-1)) {
 			number = (int)(Math.random()*(route.length-1));
@@ -108,6 +109,7 @@ public class SimulatedAnnealing{
 		holder = route[number];
 		route[number]=route[number2];
 		route[number2] = holder;
+		}
 				
 	}
 	
