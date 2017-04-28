@@ -23,7 +23,7 @@ public class Truck {
 	}
 	
 	public double calcTime() {
-		time+= (distance/5000)/(100.0/3);
+		time+= (distance)/(100.0/3);
 		time+= houses*60;
 		if(bart) {
 			time+=(bartIn*30);
