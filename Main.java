@@ -116,8 +116,8 @@ public class Main{
 						bestRoute = SimulatedAnnealing.getRoute();
 					}
 				}
-				
 			}
+			
 			else{
 				if(SimulatedAnnealing.acceptanceProbability(distFinal, distNext) > Math.random()) {
 					distFinal = distNext;
@@ -129,18 +129,17 @@ public class Main{
 			}
 			
 			
-			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1 - 0.001));
+			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1 - 0.0001));
 			System.out.println(distFinal);
 			
 		}
 		System.out.println("original distance: "+ distOriginal);
 		System.out.println("final distance:" + distFinal);
-		System.out.println("The best distance was " + finalfinal);
-		System.out.println(x);
+		System.out.println("The best distance was " + finalfinal + " feet");
 		
 		Truck firstTruck = new Truck(bestRoute, finalfinal, numberOfInputs, bartInputs, lisaInputs, true, true, false);
 		
-		System.out.println("Time is " + firstTruck.calcTime());
+		System.out.println("Time is " + firstTruck.calcTime() + " in seconds, " + (firstTruck.calcTime()/3600) + " in hours.");
 		System.out.println("Cost is " + firstTruck.calcCost());
 		//public Truck(House[] route, int numHouses, int bartIn, int lisaIn, boolean b, boolean l, boolean r) {
 		

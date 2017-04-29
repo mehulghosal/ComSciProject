@@ -2,7 +2,7 @@ import java.util.*;
 
 public class SimulatedAnnealing{
 	
-	private static double temperature = 10000; //temperature is basically a counter, but counts down -- setting an intial temperature
+	private static double temperature = 5000; //temperature is basically a counter, but counts down -- setting an intial temperature
 	private static double distance;
 	private static House[] route;
 	
@@ -47,6 +47,7 @@ public class SimulatedAnnealing{
 	changed this method to use araylists, now works
 	*/
 	public static void constructRoute(House[] original) {
+		
 		route = new House[original.length+2]; 
 		route[0] = new House(125,22);
 		ArrayList<Integer> randomChecker = new ArrayList<Integer>();
@@ -61,24 +62,6 @@ public class SimulatedAnnealing{
 			route[i+1] = original[x];
 		}
 
-		/*
-		route = new House[original.length]; 
-		ArrayList<Integer> randomChecker = new ArrayList<Integer>(original.length);
-		
-		for(int i=0; i<original.length-1; i++){
-			int random = (int) (Math.random()*(original.length));
-			if(randomChecker.contains(random)){
-				i--;
-				continue;
-			}	
-			randomChecker.add(random);
-		route[i] = original[random];
-		*/
-
-	/*	route[0] = new House(125,22); //start at distribution center
-		for(int i=0; i<route.length-2; i++){
-			route[i+1] = original[i];	
-		}*/
 		route[route.length-1] = new House(125,22);
 		
 	}
@@ -94,7 +77,6 @@ public class SimulatedAnnealing{
 	
 	public static void randomChangeRoute() {
 		
-		for(int i = 0; i<(temperature/200); i++) {
 		int number = 0; 
 		while(number==0 || number==(route.length-1)) {
 			number = (int)(Math.random()*(route.length-1));
@@ -109,7 +91,7 @@ public class SimulatedAnnealing{
 		holder = route[number];
 		route[number]=route[number2];
 		route[number2] = holder;
-		}
+		
 				
 	}
 	

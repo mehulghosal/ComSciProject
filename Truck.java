@@ -13,6 +13,7 @@ public class Truck {
 	private int houses;
 	
 	public Truck(House[] route, double dist, int numHouses, int bartIn, int lisaIn, boolean b, boolean l, boolean r) {
+		
 		truckRoute = route;
 		bartInputs = bartIn;
 		lisaInputs = lisaIn;
@@ -20,11 +21,14 @@ public class Truck {
 		lisa = l;
 		rental = r;
 		distance = dist;
+		
 	}
 	
 	public double calcTime() {
-		time+= (distance)/(100.0/3);
-		time+= houses*60;
+		
+		time = 0;
+		time += (distance)/(100.0/3);
+		time += (houses - 2) * 60;
 		if(bart) {
 			time+=(bartInputs*30);
 		}
@@ -32,12 +36,17 @@ public class Truck {
 			time+=(lisaInputs*30);
 		}
 		return time;
+		
 	}
+	
 	public double calcCost() {
-		cost+=(distance/1000)+((int)(distance/5000))*10;
+		
+		cost += (distance/1000) + ((int)(distance/5000))*10;
+		
 		if(rental) {
 			cost+=15000;
 		}
+		
 		for(int i = 1; i<=(time/3600); i++) {
 			if(i<=8) {
 				cost+=30;
@@ -47,6 +56,7 @@ public class Truck {
 			}
 		}
 		return cost;
+		
 	}
 	
 	
