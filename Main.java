@@ -100,7 +100,7 @@ public class Main{
 		House[] holder = SimulatedAnnealing.getRoute();
 		House[] bestRoute = SimulatedAnnealing.getRoute();
 		
-		while(SimulatedAnnealing.getTemp() > 0.1){
+		while(SimulatedAnnealing.getTemp() > 0.01){
 			
 			SimulatedAnnealing.randomChangeRoute();
 			SimulatedAnnealing.setRouteDistance();
@@ -150,8 +150,6 @@ public class Main{
 			
 			
 		}
-		SimulatedAnnealing.setRouteDistance();
-		System.out.println("Correct distance:  " + SimulatedAnnealing.getDistance());
 		System.out.println("original distance: "+ distOriginal);
 		System.out.println("final distance:" + distFinal);
 		System.out.println("The best distance was " + finalfinal + " feet");
