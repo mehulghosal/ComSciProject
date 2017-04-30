@@ -140,6 +140,9 @@ public class Main{
 						finalfinal = distFinal;
 					}
 				}
+				else {
+					SimulatedAnnealing.setRoute(holder);
+				}
 			}
 			
 			System.out.println(distFinal);
