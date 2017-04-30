@@ -9,8 +9,6 @@ public class SimulatedAnnealing{
 	private static int number2 = 0;
 	private static double greatestDistance;
 	private static int greatestNumber;
-	private static double distanceHolder = 0;
-	private static double distancePreHolder = 0;
 	
 	public static double getDistance(){
 		return distance;
@@ -74,7 +72,7 @@ public class SimulatedAnnealing{
 	
 	
 		
-	public static void setOriginalDistance() {
+	public static void setRouteDistance() {
 		distance = 0;
 		greatestDistance = 0;
 		greatestNumber = 0;
@@ -87,12 +85,7 @@ public class SimulatedAnnealing{
 		}
 	}
 	//returns the total distance of the current array
-	public static void setRouteDistance() {
-		
-		distance=distance-distancePreHolder;
-		distance+=distanceHolder;
-		
-	}
+
 	
 	public static void randomChangeRoute() {
 		
@@ -106,16 +99,10 @@ public class SimulatedAnnealing{
 			number2 = (int)(Math.random()*(route.length-1));
 		}
 		
-		distancePreHolder = route[number-1].distance(route[number])+route[number].distance(route[number+1]);
-		distancePreHolder += route[number2-1].distance(route[number2])+route[number2].distance(route[number2+1]);
-		
 		House holder;
 		holder = route[number];
 		route[number]=route[number2];
 		route[number2] = holder;
-		distanceHolder = route[number-1].distance(route[number])+route[number].distance(route[number+1]);
-		distanceHolder += route[number2-1].distance(route[number2])+route[number2].distance(route[number2+1]);
-
 				
 	}
 	public static void flipGreat() {
@@ -124,16 +111,11 @@ public class SimulatedAnnealing{
 			number = (int)(Math.random()*(route.length-1));
 		}
 		number2 = greatestNumber;
-
-		distancePreHolder = route[number-1].distance(route[number])+route[number].distance(route[number+1]);
-		distancePreHolder += route[greatestNumber-1].distance(route[greatestNumber])+route[greatestNumber+1].distance(route[greatestNumber+1]);
 		
 		House holder = route[greatestNumber];
 		route[greatestNumber] = route[number];
 		route[number] = holder;
 		
-		distanceHolder = route[greatestNumber-1].distance(route[greatestNumber])+route[greatestNumber].distance(route[greatestNumber+1]);
-		distanceHolder += route[number-1].distance(route[number])+route[number].distance(route[number+1]);
 	}
 	
 
