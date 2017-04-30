@@ -89,29 +89,8 @@ public class SimulatedAnnealing{
 	//returns the total distance of the current array
 	public static void setRouteDistance() {
 		
-		distance-=distancePreHolder;
+		distance=distance-distancePreHolder;
 		distance+=distanceHolder;
-		double a = route[number-1].distance(route[number]);
-		double b = route[number].distance(route[number+1]);
-		double c = route[number2 -1].distance(route[number2]);
-		double d = route[number2].distance(route[number2 +1]);
-		if(a>greatestDistance) {
-			greatestDistance = a;
-			greatestNumber = number-1;
-		}
-		if(b>greatestDistance) {
-			greatestDistance = b;
-			greatestNumber = number;
-		}
-		if(c>greatestDistance) {
-			greatestDistance = c;
-			greatestNumber = number2 -1;
-		}
-		if(d>greatestDistance) {
-			greatestDistance = d;
-			greatestNumber = number2;
-		}
-		
 		
 	}
 	
