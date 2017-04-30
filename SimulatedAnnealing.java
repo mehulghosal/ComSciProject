@@ -77,9 +77,10 @@ public class SimulatedAnnealing{
 	public static void setOriginalDistance() {
 		distance = 0;
 		greatestDistance = 0;
+		greatestNumber = 0;
 		for(int i = 0; i<route.length-2; i++) {
 			distance+=route[i].distance(route[i+1]);
-			if(route[i].distance(route[i+1])>greatestDistance) {
+			if(route[i].distance(route[i+1])>greatestDistance && i!=0 && i!=route.length-1) {
 				greatestDistance = route[i].distance(route[i+1]);
 				greatestNumber = i;
 			}
