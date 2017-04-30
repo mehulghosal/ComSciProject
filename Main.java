@@ -91,7 +91,7 @@ public class Main{
 		
 		//heyyyy tis working
 		SimulatedAnnealing.constructRoute(inputs);
-		SimulatedAnnealing.setOriginalDistance();
+		SimulatedAnnealing.setRouteDistance();
 		double distOriginal = SimulatedAnnealing.getDistance();
 		double distNext;
 		double distFinal = distOriginal;
@@ -100,7 +100,7 @@ public class Main{
 		House[] holder = SimulatedAnnealing.getRoute();
 		House[] bestRoute = SimulatedAnnealing.getRoute();
 		
-		while(SimulatedAnnealing.getTemp() > 0.001){
+		while(SimulatedAnnealing.getTemp() > 0.1){
 			
 			SimulatedAnnealing.randomChangeRoute();
 			SimulatedAnnealing.setRouteDistance();
@@ -128,7 +128,7 @@ public class Main{
 			}
 			
 			
-			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1 - 0.0001));
+			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1 - 0.001));
 			
 			for(int i = 0; i<50; i++) {
 				SimulatedAnnealing.flipGreat();
@@ -136,7 +136,6 @@ public class Main{
 				if(SimulatedAnnealing.getDistance()<distFinal) {
 					holder = SimulatedAnnealing.getRoute();
 					distFinal = SimulatedAnnealing.getDistance();
-					SimulatedAnnealing.setOriginalDistance();
 					if(distFinal<finalfinal) {
 						finalfinal = distFinal;
 					}
@@ -148,7 +147,7 @@ public class Main{
 			
 			
 		}
-		SimulatedAnnealing.setOriginalDistance();
+		SimulatedAnnealing.setRouteDistance();
 		System.out.println("Correct distance:  " + SimulatedAnnealing.getDistance());
 		System.out.println("original distance: "+ distOriginal);
 		System.out.println("final distance:" + distFinal);
