@@ -128,7 +128,7 @@ public class Main{
 			}
 			
 			
-			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1 - 0.000001));
+			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1 - 0.0001));
 			
 			//for(int i = 0; i<5; i++) {
 				SimulatedAnnealing.flipGreat();
