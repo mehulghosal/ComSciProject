@@ -159,7 +159,7 @@ public class Main{
 		System.out.println("Time is " + firstTruck.calcTime() + " in seconds, " + (firstTruck.calcTime()/3600) + " in hours.");
 		System.out.println("Cost is " + firstTruck.calcCost());
 		for(int i = 0; i<10; i++) {
-			System.out.println(route[i].distance(route[i+1]);
+			System.out.println(route[i].distance(route[i+1]));
 		}
 		//public Truck(House[] route, int numHouses, int bartIn, int lisaIn, boolean b, boolean l, boolean r) {
 		
