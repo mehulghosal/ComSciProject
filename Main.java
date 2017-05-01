@@ -128,9 +128,9 @@ public class Main{
 			}
 			
 			
-			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1 - 0.001));
+			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1 - 0.000001));
 			
-			for(int i = 0; i<50; i++) {
+			//for(int i = 0; i<5; i++) {
 				SimulatedAnnealing.flipGreat();
 				SimulatedAnnealing.setRouteDistance();
 				if(SimulatedAnnealing.getDistance()<distFinal) {
@@ -143,7 +143,7 @@ public class Main{
 				else {
 					SimulatedAnnealing.setRoute(holder);
 				}
-			}
+		//	}
 			
 			System.out.println(distFinal);
 			
