@@ -100,7 +100,7 @@ public class Main{
 		House[] holder = SimulatedAnnealing.getRoute();
 		House[] bestRoute = SimulatedAnnealing.getRoute();
 		
-		while(SimulatedAnnealing.getTemp() > 0.01){
+		while(SimulatedAnnealing.getTemp() > 0.001){
 			
 			SimulatedAnnealing.randomChangeRoute();
 			SimulatedAnnealing.setRouteDistance();
@@ -128,7 +128,7 @@ public class Main{
 			}
 			
 			
-			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1 - 0.0001));
+			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1 - 0.00001));
 			
 			//for(int i = 0; i<5; i++) {
 				SimulatedAnnealing.flipGreat();
