@@ -66,7 +66,7 @@ public class SimulatedAnnealing{
 			route[i+1] = original[x];
 		}*/
 		for(int i = 0; i<original.length; i++) {
-			route[i+1] = original[x];
+			route[i+1] = original[i];
 		}
 
 		route[route.length-1] = new House(125,22);
