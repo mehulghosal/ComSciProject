@@ -2,7 +2,7 @@ import java.util.*;
 
 public class SimulatedAnnealing{
 	
-	private static double temperature = 1000; //temperature is basically a counter, but counts down -- setting an intial temperature
+	private static double temperature = 10000; //temperature is basically a counter, but counts down -- setting an intial temperature
 	private static double distance = 0;
 	private static House[] route;
 	private static int number = 0;
