@@ -24,6 +24,7 @@ public class ClosestHouse{
 			//making route with houses that haven been used yet
 
 			outputRoute[i+1] = outputRoute[i].nearestHouse(unused);
+			System.out.println((outputRoute[i].returnShort());
 			unused.remove(outputRoute[i].returnShort());
 		}
 		
