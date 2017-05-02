@@ -41,7 +41,7 @@ public class SimulatedAnnealing{
 			return 1.0;
 		}
 		// If the new solution is worse, calculate an acceptance probability
-		return Math.exp((distOriginal - distNext) / temperature);
+		return Math.exp((distOriginal - distNext)/10 / temperature);
 	}
 	
 	
@@ -98,8 +98,18 @@ public class SimulatedAnnealing{
 		}
 		
 		number2 = 0;
-		while(number2==0 || number2==(route.length-1)) {
-			number2 = (int)(Math.random()*(route.length-1));
+		while(number2<=0 || number2>=(route.length-1)) {
+			if(Math.random()>0.1) {
+				if(Math.random()>0.5) {
+					number2=number+((int)(Math.random()*100));
+				}
+				else {
+					number2=number-((int)(Math.random()*100));
+				}
+			}
+			else {
+				number2 = (int)(Math.random()*(route.length-1));
+			}
 		}
 		
 		House holder;
@@ -110,8 +120,18 @@ public class SimulatedAnnealing{
 	}
 	public static void flipGreat() {
 		number = 0;
-		while(number==0 || number==(route.length-1)) {
-			number = (int)(Math.random()*(route.length-1));
+		while(number<=0 || number>=(route.length-1)) {
+			if(Math.random()>0.2) {
+				if(Math.random()>0.5) {
+					number=greatestNumber+((int)(Math.random()*100));
+				}
+				else {
+					number=greatestNumber-((int)(Math.random()*100));
+				}
+			}
+			else {
+				number2 = (int)(Math.random()*(route.length-1));
+			}
 		}
 		number2 = greatestNumber;
 		
