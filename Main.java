@@ -93,6 +93,7 @@ public class Main{
 		ClosestHouse.inputRoute(inputs);
 		ClosestHouse.calcRoute();
 		House[] optimalRoute = ClosestHouse.getRoute();
+		double finalfinal = ClosestHouse.calcDistance();
 		/*double distOriginal = SimulatedAnnealing.getDistance();
 		double distNext;
 		double distFinal = distOriginal;
