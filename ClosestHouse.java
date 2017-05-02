@@ -20,7 +20,7 @@ public class ClosestHouse{
 		for(int i = 0; i<inputRoute.length-1; i++) {
 			unused.add(inputRoute[i]);
 		}
-		for(int i = 0; i<inputRoute.length-2; i++) {
+		for(int i = 0; i<inputRoute.length-1; i++) {
 			//making route with houses that haven been used yet
 
 			outputRoute[i+1] = outputRoute[i].nearestHouse(unused);
