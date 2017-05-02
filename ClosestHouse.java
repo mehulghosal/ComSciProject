@@ -3,8 +3,8 @@ import java.io.*;
 
 public class ClosestHouse{
 	
-	private House[] inputRoute;
-	private House[] outputRoute;
+	private static House[] inputRoute;
+	private static House[] outputRoute;
 	
 	public static void inputRoute(House[] inputs) {
 		inputRoute = inputs;	
@@ -24,7 +24,7 @@ public class ClosestHouse{
 			//making route with houses that haven been used yet
 
 			outputRoute[i+1] = outputRoute[i].closestHouse(unused);
-			unused.remove(outputRoute.get(i).returnShort());
+			unused.remove(outputRoute[i].returnShort());
 		}
 		
 		outputRoute[outputRoute.length-1] = new House(125,22);		
