@@ -21,5 +21,19 @@ class House {
     public double distance(House house) {
     	return Math.abs(this.x - house.x) + Math.abs(this.y - house.y);
     }
+	
+    public House nearestHouse(House house, House[] route) {
+	    int shortestDistance = 100000000;
+	    int shortestNumber = 0;
+	    for(int i = 0; i<route.length-1; i++) {
+		    int distance = house.distance(route[i]);
+		    if(distance<shortestDistance) {
+			    shortestDistance = distance;
+			    shortestNumber = 0;
+		    }
+	    }
+	    
+	    return route[i];
+    }
 
 }
