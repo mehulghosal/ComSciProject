@@ -23,17 +23,17 @@ class House {
     }
 	
     public House nearestHouse(House house, House[] route) {
-	    int shortestDistance = 100000000;
+	    double shortestDistance = 100000000;
 	    int shortestNumber = 0;
 	    for(int i = 0; i<route.length-1; i++) {
-		    int distance = house.distance(route[i]);
+		    double distance = house.distance(route[i]);
 		    if(distance<shortestDistance) {
 			    shortestDistance = distance;
-			    shortestNumber = 0;
+			    shortestNumber = i;
 		    }
 	    }
 	    
-	    return route[i];
+	    return route[shortestNumber];
     }
 
 }
