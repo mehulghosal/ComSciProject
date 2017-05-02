@@ -3,7 +3,8 @@ import java.util.*;
 class House {
 	
     private double x;//x is the street
-    private double y;//y is the avenue plus the house 
+    private double y;//y is the avenue plus the house
+    private int shortHolder = 0;
 
     public House(double x, double y) {
         this.x = x*200;
@@ -32,7 +33,7 @@ class House {
 			    shortestNumber = i;
 		    }
 	    }
-	    
+	    shortHolder = shortestNumber;
 	    return route[shortestNumber];
     }
 
