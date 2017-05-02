@@ -23,6 +23,10 @@ class House {
     	return Math.abs(this.x - house.x) + Math.abs(this.y - house.y);
     }
 	
+    public int returnShort() {
+	    return shortHolder;
+    }
+	
     public House nearestHouse(House[] route) {
 	    double shortestDistance = 100000000;
 	    int shortestNumber = 0;
