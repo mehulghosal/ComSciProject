@@ -31,6 +31,14 @@ public class ClosestHouse{
 		}
 	}
 
+	public static double calcDistance() {
+		double distance = 0;
+		for(int i = 0; i<outputRoute.length-2; i++) {
+			distance+=outputRoute[i].distance(outputRoute[i+1]);	
+		}
+		return distance;
+	}
+
 	
 	
 	
