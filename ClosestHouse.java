@@ -1,7 +1,36 @@
 import java.util.*;
 import java.io.*;
 
-public static class ClosestHouse{
+public class ClosestHouse{
+	
+	private House[] inputRoute;
+	private House[] outputRoute;
+	
+	public static void setRoute(House[] inputs) {
+		inputRoute = inputs;	
+	}
+	
+	public static void calcRoute() {
+		outputRoute = new House[inputRoute.length+2];
+		outputRoute[0] = new House(125,22);
+		ArrayList<House> unused = new ArrayList<House>();
+		for(int i = 0; i<inputRoute.length-1; i++) {
+			unused.add(inputRoute[i]);
+		}
+		for(int i = 0; i<inputRoute.length-2; i++) {
+			//making route with houses that haven been used yet
+
+			outputRoute[i+1] = outputRoute[i].closestHouse(unused);
+			unused.remove(outputRoute.get(i).returnShort());
+		}
+		
+		outputRoute[outputRoute.length-1] = new House(125,22);		
+		}
+	}
+
+	
+	
+	
 	
 
 		
