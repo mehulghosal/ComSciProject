@@ -27,18 +27,18 @@ class House {
 	    return shortHolder;
     }
 	
-    public House nearestHouse(House[] route) {
+    public House nearestHouse(ArrayList<House> route) {
 	    double shortestDistance = 100000000;
 	    int shortestNumber = 0;
 	    for(int i = 0; i<route.length-1; i++) {
-		    double distance = this.distance(route[i]);
+		    double distance = this.distance(route.get(i));
 		    if(distance<shortestDistance) {
 			    shortestDistance = distance;
 			    shortestNumber = i;
 		    }
 	    }
 	    shortHolder = shortestNumber;
-	    return route[shortestNumber];
+	    return route.get(shortestNumber);
     }
 
 }
