@@ -14,6 +14,7 @@ public class ClosestHouse{
 	}
 	
 	public static void calcRoute() {
+		System.out.println(inputs.length);
 		outputRoute = new House[inputRoute.length+2];
 		outputRoute[0] = new House(125,22);
 		ArrayList<House> unused = new ArrayList<House>();
