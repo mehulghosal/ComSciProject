@@ -90,9 +90,10 @@ public class Main{
 		
 		
 		//heyyyy tis working
-		SimulatedAnnealing.constructRoute(inputs);
-		SimulatedAnnealing.setRouteDistance();
-		double distOriginal = SimulatedAnnealing.getDistance();
+		ClosestHouse.inputRoute(inputs);
+		ClosestHouse.calcRoute();
+		House[] optimalRoute = ClosestHouse.getRoute();
+		/*double distOriginal = SimulatedAnnealing.getDistance();
 		double distNext;
 		double distFinal = distOriginal;
 		double finalfinal = SimulatedAnnealing.getDistance();
@@ -153,11 +154,13 @@ public class Main{
 			
 			
 		}
+		
 		System.out.println("original distance: "+ distOriginal);
 		System.out.println("final distance:" + distFinal);
 		System.out.println("The best distance was " + finalfinal + " feet");
+		*/
 		
-		Truck firstTruck = new Truck(bestRoute, finalfinal, numberOfInputs, bartInputs, lisaInputs, true, true, false);
+		Truck firstTruck = new Truck(optimalRoute, finalfinal, numberOfInputs, bartInputs, lisaInputs, true, true, false);
 		
 		System.out.println("Time is " + firstTruck.calcTime() + " in seconds, " + (firstTruck.calcTime()/3600) + " in hours.");
 		System.out.println("Cost is " + firstTruck.calcCost());
