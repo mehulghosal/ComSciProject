@@ -6,8 +6,11 @@ public class ClosestHouse{
 	private House[] inputRoute;
 	private House[] outputRoute;
 	
-	public static void setRoute(House[] inputs) {
+	public static void inputRoute(House[] inputs) {
 		inputRoute = inputs;	
+	}
+	public static House[] getRoute() {
+		return outputRoute;
 	}
 	
 	public static void calcRoute() {
