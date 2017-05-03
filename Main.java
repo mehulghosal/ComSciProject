@@ -94,6 +94,9 @@ public class Main{
 		ClosestHouse.calcRoute();
 		House[] optimalRoute = ClosestHouse.getRoute();
 		double finalfinal = ClosestHouse.calcDistance();
+		
+		
+		
 		/*double distOriginal = SimulatedAnnealing.getDistance();
 		double distNext;
 		double distFinal = distOriginal;
@@ -163,11 +166,27 @@ public class Main{
 		
 		Truck firstTruck = new Truck(optimalRoute, finalfinal, numberOfInputs, bartInputs, lisaInputs, true, true, true);
 		
+		//this bit right here
+		int Bholder = 0;
+		int Lholder = 0;
+		for(int i =0; i < optimalRoute.length; i++){
+			
+			if(optimalRoute[i].getX() == 2 && optimalRoute[i].getY() == 3){
+				Bholder = i;
+			}
+			else if(optimalRoute[i].getX() == 149 && optimalRoute[i].getY() == 33){
+				Lholder = i;
+			}
+			
+		}
+		
+		System.out.println("Bart is at index of " + Bholder + " Lisa is at index of " + Lholder);
+		
+		
 		System.out.println(finalfinal);
 		System.out.println("Time is " + firstTruck.calcTime() + " in seconds, " + (firstTruck.calcTime()/3600) + " in hours.");
 		System.out.println("Cost is " + firstTruck.calcCost());
-		System.out.println(ClosestHouse.getMaxDistance() + " is max distance."); 
-		System.out.println(ClosestHouse.getMaxHolder());
+
 		//public Truck(House[] route, int numHouses, int bartIn, int lisaIn, boolean b, boolean l, boolean r) {
 		
 

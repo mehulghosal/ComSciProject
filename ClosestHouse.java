@@ -18,7 +18,6 @@ public class ClosestHouse{
 	}
 	
 	public static void calcRoute() {
-		System.out.println(inputRoute.length);
 		outputRoute = new House[inputRoute.length+2];
 		outputRoute[0] = new House(125,22);
 		ArrayList<House> unused = new ArrayList<House>();
@@ -40,7 +39,6 @@ public class ClosestHouse{
 		double distance = 0;
 		for(int i = 0; i<outputRoute.length-2; i++) {
 			distance+=outputRoute[i].distance(outputRoute[i+1]);
-			System.out.println(outputRoute[i].distance(outputRoute[i+1]));
 		}
 
 		return distance;
@@ -58,16 +56,32 @@ public class ClosestHouse{
 		return maxDistance;
 	}
 	
-	public static void flipGreat() {
-		double distanceHolder = outputRoute[maxHolder].distance(outputRoute[maxHolder+1]);
-		//House[] routeHolder = outputRoute[];
-		for(int i = 0; i<outputRoute.length-2; i++) {
+/*	public static void flipGreat() {
+		double distanceHolder = ClosestHouse.calcDistance();
+		House[] routeHolder = outputRoute;
+		int closestNum = maxHolder;
+		System.out.println(ClosestHouse.calcDistance());
+		for(int i = 1; i<outputRoute.length-2; i++) {
 			House holder = outputRoute[maxHolder];
 			outputRoute[maxHolder] = outputRoute[i];
 			outputRoute[i] = holder;
-			ClosestHouse.calcDistance();
+			if(ClosestHouse.calcDistance() < distanceHolder && i!=maxHolder) {
+				distanceHolder = ClosestHouse.calcDistance();
+				closestNum = i;
+			}
+			outputRoute = routeHolder;
 		}
+		if(outputRoute == routeHolder) {
+			System.out.println("TANWI");
+		}
+		
+		System.out.println(ClosestHouse.calcDistance());
+		House holder = outputRoute[closestNum];
+		outputRoute[closestNum] = outputRoute[maxHolder];
+		outputRoute[maxHolder] = holder;
+		System.out.println(ClosestHouse.calcDistance());
 	}
+	*/
 
 	
 	
