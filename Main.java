@@ -161,13 +161,13 @@ public class Main{
 		System.out.println("The best distance was " + finalfinal + " feet");
 		*/
 		
-		Truck firstTruck = new Truck(optimalRoute, finalfinal, numberOfInputs, bartInputs, lisaInputs, true, true, false);
+		Truck firstTruck = new Truck(optimalRoute, finalfinal, numberOfInputs, bartInputs, lisaInputs, true, true, true);
 		
+		System.out.println(finalfinal);
 		System.out.println("Time is " + firstTruck.calcTime() + " in seconds, " + (firstTruck.calcTime()/3600) + " in hours.");
 		System.out.println("Cost is " + firstTruck.calcCost());
-		for(int i = 0; i<10; i++) {
-			System.out.println(SimulatedAnnealing.getRoute()[i].distance(SimulatedAnnealing.getRoute()[i+1]));
-		}
+		System.out.println(ClosestHouse.getMaxDistance() + " is max distance."); 
+		System.out.println(ClosestHouse.getMaxHolder());
 		//public Truck(House[] route, int numHouses, int bartIn, int lisaIn, boolean b, boolean l, boolean r) {
 		
 
