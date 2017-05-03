@@ -30,7 +30,7 @@ class House {
     public House nearestHouse(ArrayList<House> route) {
 	    double shortestDistance = 100000000;
 	    int shortestNumber = 0;
-	    for(int i = 0; i<route.size(); i++) {
+	    for(int i = 0; i<route.size()-1; i++) {
 		    double distance = this.distance(route.get(i));
 		    if(distance<shortestDistance) {
 			    shortestDistance = distance;
