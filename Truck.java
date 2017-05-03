@@ -21,6 +21,7 @@ public class Truck {
 		lisa = l;
 		rental = r;
 		distance = dist;
+		houses = numHouses;
 		
 	}
 	
