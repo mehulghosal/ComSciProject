@@ -87,6 +87,30 @@ public class Main{
 		int bartInputs = Integer.parseInt(records.get(records.size() - 3));
 		int lisaInputs = Integer.parseInt(records.get(records.size() - 1));
 		
+		int amtTrucks = 1;
+		double totalTime = 100000;
+		while(totalTime/3600>24) {
+			int[] aveHolder = new int[50];
+			int sum = 0;
+			double interval = 50.0/amtTrucks;
+			double holder = interval;
+			int times = 0;
+			while(sum<50) {
+				while(sum<holder) {
+					aveHolder[i] = times;
+					sum++;
+				}
+				holder+=interval;
+				times++;
+			}
+			Truck[] trucks = new Truck[amtTrucks];
+			
+			for(int i = 0; i<inputs.length; i++) {
+				
+			}
+		}
+
+		
 		
 		ClosestHouse.inputRoute(inputs);
 		ClosestHouse.calcRoute();
@@ -102,6 +126,7 @@ public class Main{
 		*/
 		
 		
+		/*
 		List<House> firstList = null;		House[] firstArr = null;	boolean firstBart = false; 		boolean firstLisa = false;
 		List<House> secondList = null;		House[] secondArr = null;	boolean secondBart = false; 	boolean secondLisa = false;
 		List<House> thirdList = null;		House[] thirdArr = null;	boolean thirdBart = false; 		boolean thirdLisa = false;
@@ -118,14 +143,14 @@ public class Main{
 			int houseNum = numberOfInputs+2;
 			for(int i = 0; i<amtTrucks; i++) {
 				if(amtTrucks == 1) {
-					firstArr = optimalRoute;
+					firstList.add(optimalRoute[i]);
 				}
 				if(amtTrucks == 2) {
 					if(i<=houseNum/2) {
 						firstList.add(optimalRoute[i]);
 					}
 					else {
-						
+						secondList.add(optimalRoute[i]);
 					}
 				}
 				if(amtTrucks == 3) {
@@ -152,7 +177,9 @@ public class Main{
 			
 			
 			
-		}
+		}*/
+		
+		
 		
 		
 		
