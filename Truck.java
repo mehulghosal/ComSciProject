@@ -11,7 +11,7 @@ public class Truck {
 	private boolean rental;
 	private int houses = 2;
 	private House[] truckRoute;
-	List<House> initialRoute;
+	ArrayList<House> initialRoute;
 	
 	
 	public Truck(int bartIn, int lisaIn, boolean rent) {
@@ -23,10 +23,10 @@ public class Truck {
 	public void addHouse(House house) {
 		initialRoute.add(house);	
 		houses++;
-		if(house.getX() = 2000 && house.getY() = 600) {
+		if(house.getX() == 2000.0 && house.getY() == 600.0) {
 			bart = true;
 		}
-		if(house.getX() = 149000 && house.getY() = 6600) {
+		if(house.getX() == 149000.0 && house.getY() == 6600.0) {
 			lisa = true;
 		}
 	}
@@ -35,7 +35,7 @@ public class Truck {
 		ClosestHouse.inputRoute(initialRoute);
 		ClosestHouse.calcRoute();
 		truckRoute = ClosestHouse.getRoute();
-		distance = ClosestHouse.getDistance();
+		distance = ClosestHouse.calcDistance();
 		ClosestHouse.reset();
 	}
 	
