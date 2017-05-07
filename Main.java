@@ -86,10 +86,11 @@ public class Main{
 		int bartInputs = Integer.parseInt(records.get(records.size() - 3));
 		int lisaInputs = Integer.parseInt(records.get(records.size() - 1));
 		
-		int amtTrucks = 1;
+		int amtTrucks = 0;
 		double maxTime = 100000;
 		double totalCost = 0;
 		while(maxTime/3600>24) {
+			amtTrucks++;
 			maxTime = 0;
 			totalCost = 0;
 			int[] aveHolder = new int[50];
@@ -122,7 +123,7 @@ public class Main{
 				}
 				totalCost+=trucks[i].calcCost();
 			}
-			System.out.println(maxTime/2400);
+			System.out.println(maxTime/3600);
 		}
 		
 		System.out.println("Cost is " + totalCost);
