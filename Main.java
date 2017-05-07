@@ -90,7 +90,7 @@ public class Main{
 		double maxTime = 100000;
 		double totalCost = 0;
 		//while(maxTime/3600>24) {
-		for(int x = 0; x<4; x++) {
+		for(int x = 0; x<10; x++) {
 			amtTrucks++;
 			maxTime = 0;
 			totalCost = 0;
