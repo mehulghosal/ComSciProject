@@ -73,8 +73,7 @@ public class Main{
 			}
 			else if(holderArray[2].equals("J") || holderArray[2].equals("JJ")) {
 				houseAddress = .9;
-			}
-			
+			}			
 						
 			inputs[i] = new House(holderStreet, holderAve + houseAddress);
 			
@@ -118,7 +117,7 @@ public class Main{
 			}
 			for(int i = 0; i<amtTrucks; i++) {
 				trucks[i].calcRoute();
-				if(trucks[i].calcTIme()>maxTime) {
+				if(trucks[i].calcTime()>maxTime) {
 					maxTime = trucks[i].calcTime();	
 				}
 				totalCost+=trucks[i].calcCost();
