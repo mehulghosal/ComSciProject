@@ -93,7 +93,6 @@ public class Main{
 		while(totalTime/3600>24) {
 			totalTime = 0;
 			totalCost = 0;
-			double time = 0;
 			int[] aveHolder = new int[50];
 			int sum = 0;
 			double interval = 50.0/amtTrucks;
@@ -101,7 +100,7 @@ public class Main{
 			int times = 0;
 			while(sum<50) {
 				while(sum<holder) {
-					aveHolder[i] = times;
+					aveHolder[sum] = times;
 					sum++;
 				}
 				holder+=interval;
@@ -113,7 +112,7 @@ public class Main{
 			}
 			
 			for(int i = 0; i<inputs.length; i++) {
-				int toAve = Integer.parseInt(inputs[i].getY())/1000;
+				int toAve = (inputs[i].getY())/1000;
 				int toTruck = aveHolder[toAve];
 				trucks[toTruck].addHouse(inputs[i]);
 			}
