@@ -89,7 +89,11 @@ public class Main{
 		
 		int amtTrucks = 1;
 		double totalTime = 100000;
+		double totalCost = 0;
 		while(totalTime/3600>24) {
+			totalTime = 0;
+			totalCost = 0;
+			double time = 0;
 			int[] aveHolder = new int[50];
 			int sum = 0;
 			double interval = 50.0/amtTrucks;
@@ -104,20 +108,33 @@ public class Main{
 				times++;
 			}
 			Truck[] trucks = new Truck[amtTrucks];
+			for(int i = 0; i<amtTrucks; i++) {
+				trucks[i] = new Truck(bartInputs, lisaInputs, false);	
+			}
 			
 			for(int i = 0; i<inputs.length; i++) {
-				
+				int toAve = Integer.parseInt(inputs[i].getY())/1000;
+				int toTruck = aveHolder[toAve];
+				trucks[toTruck].addHouse(inputs[i]);
+			}
+			for(int i = 0; i<amtTrucks; i++) {
+				trucks[i].calcRoute();
+				totalTime+=trucks[i].calcTime();
+				totalCost+=trucks[i].calcCost();
 			}
 		}
+		
+		System.out.println("Cost is " + totalCost);
+		System.out.println("Time in hours is " + totalTime/3600);
 
 		
-		
+		/*
 		ClosestHouse.inputRoute(inputs);
 		ClosestHouse.calcRoute();
 		House[] optimalRoute = ClosestHouse.getRoute();
 		double finalfinal = ClosestHouse.calcDistance();
 		Truck firstTruck = new Truck(optimalRoute, finalfinal, numberOfInputs, bartInputs, lisaInputs, true, true, true);		
-
+*/
 		
 		/*this is for splitting the array
 		we're going to spilt the array into quadrants by x and y 
@@ -185,10 +202,11 @@ public class Main{
 		
 		
 		
-		
+		/*
 		System.out.println(finalfinal);
 		System.out.println("Time is " + firstTruck.calcTime() + " in seconds, " + (firstTruck.calcTime()/3600) + " in hours.");
 		System.out.println("Cost is " + firstTruck.calcCost());
+		*/
 
 		//public Truck(House[] route, int numHouses, int bartIn, int lisaIn, boolean b, boolean l, boolean r) {
 		
