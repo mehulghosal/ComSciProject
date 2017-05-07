@@ -112,7 +112,7 @@ public class Main{
 			}
 			
 			for(int i = 0; i<inputs.length; i++) {
-				int toAve = (int)((inputs[i].getY())/1000);
+				int toAve = (int)(((inputs[i].getY())/1000)-1);
 				System.out.println(toAve);
 				int toTruck = aveHolder[toAve];
 				trucks[toTruck].addHouse(inputs[i]);
