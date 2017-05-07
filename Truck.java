@@ -23,10 +23,10 @@ public class Truck {
 	public void addHouse(House house) {
 		initialRoute.add(house);	
 		houses++;
-		if(house.getX() == 2000.0 && house.getY() == 600.0) {
+		if(house.getX() == 400.0 && house.getY() == 3000.0) {
 			bart = true;
 		}
-		if(house.getX() == 149000.0 && house.getY() == 6600.0) {
+		if(house.getX() == 29800.0 && house.getY() == 33000.0) {
 			lisa = true;
 		}
 	}
