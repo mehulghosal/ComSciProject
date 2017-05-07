@@ -122,6 +122,7 @@ public class Main{
 				}
 				totalCost+=trucks[i].calcCost();
 			}
+			System.out.println(maxTime/2400);
 		}
 		
 		System.out.println("Cost is " + totalCost);
