@@ -58,7 +58,7 @@ public class Truck {
 	public double calcCost() {
 		
 		
-		cost += (distance/1000) + ((int)(distance/5000))*10;
+		cost += (distance/1000) + ((int)(distance/5000))*10; //should fix this
 		
 		if(rental) {
 			cost+=15000;
