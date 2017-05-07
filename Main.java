@@ -126,7 +126,7 @@ public class Main{
 		}
 		
 		System.out.println("Cost is " + totalCost);
-		System.out.println("Time in hours is " + totalTime/3600);
+		System.out.println("Time in hours is " + maxTime/3600);
 
 		
 		/*
