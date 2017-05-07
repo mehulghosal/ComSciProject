@@ -52,24 +52,7 @@ public class SimulatedAnnealing{
 	*/
 	public static void constructRoute(House[] original) {
 		
-		route = new House[original.length+2]; 
-		route[0] = new House(125,22);
-		/*ArrayList<Integer> randomChecker = new ArrayList<Integer>();
-		for(int i = 0; i<original.length; i++) {
-			int x = (int)(Math.random()*(original.length));
-			if(randomChecker.contains(x)) {
-				i--;
-				continue;
-			}
-				
-			randomChecker.add(x);
-			route[i+1] = original[x];
-		}*/
-		for(int i = 0; i<original.length; i++) {
-			route[i+1] = original[i];
-		}
-
-		route[route.length-1] = new House(125,22);
+		route = original;
 		
 	}
 	
@@ -140,6 +123,75 @@ public class SimulatedAnnealing{
 		route[number] = holder;
 		
 	}
+	
+	
+	
+	/*double distOriginal = SimulatedAnnealing.getDistance();
+	double distNext;
+	double distFinal = distOriginal;
+	double finalfinal = SimulatedAnnealing.getDistance();
+	
+	House[] holder = SimulatedAnnealing.getRoute();
+	House[] bestRoute = SimulatedAnnealing.getRoute();
+	
+	while(SimulatedAnnealing.getTemp() > 0.001){
+		
+		SimulatedAnnealing.randomChangeRoute();
+		SimulatedAnnealing.setRouteDistance();
+		distNext = SimulatedAnnealing.getDistance();
+		
+		if(distNext<distFinal){
+			distFinal = distNext;
+			holder = SimulatedAnnealing.getRoute();
+			if(distFinal<finalfinal) {
+				finalfinal = distFinal;
+				if(SimulatedAnnealing.getDistance()<finalfinal) {
+					bestRoute = SimulatedAnnealing.getRoute();
+				}
+			}
+		}
+		
+		else{
+			if(SimulatedAnnealing.acceptanceProbability(distFinal, distNext) > Math.random()) {
+				distFinal = distNext;
+				holder = SimulatedAnnealing.getRoute();
+			}
+			else {
+				SimulatedAnnealing.setRoute(holder);
+			}
+		}
+		
+		
+		SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1 - 0.001));
+		
+		for(int i = 0; i<10; i++) {
+			SimulatedAnnealing.setRouteDistance();
+			SimulatedAnnealing.flipGreat();
+			SimulatedAnnealing.setRouteDistance();
+			if(SimulatedAnnealing.getDistance()<distFinal) {
+				holder = SimulatedAnnealing.getRoute();
+				distFinal = SimulatedAnnealing.getDistance();
+				if(distFinal<finalfinal) {
+					finalfinal = distFinal;
+				}
+			}
+			else {
+				SimulatedAnnealing.setRoute(holder);
+			}
+			SimulatedAnnealing.setRouteDistance();
+		//	System.out.println(SimulatedAnnealing.getDistance());
+		}
+		
+		System.out.println(distFinal);
+		
+		
+		
+	}
+	
+	System.out.println("original distance: "+ distOriginal);
+	System.out.println("final distance:" + distFinal);
+	System.out.println("The best distance was " + finalfinal + " feet");
+	*/
 	
 
 	

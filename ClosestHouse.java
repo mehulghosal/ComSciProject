@@ -55,33 +55,6 @@ public class ClosestHouse{
 		}
 		return maxDistance;
 	}
-	
-/*	public static void flipGreat() {
-		double distanceHolder = ClosestHouse.calcDistance();
-		House[] routeHolder = outputRoute;
-		int closestNum = maxHolder;
-		System.out.println(ClosestHouse.calcDistance());
-		for(int i = 1; i<outputRoute.length-2; i++) {
-			House holder = outputRoute[maxHolder];
-			outputRoute[maxHolder] = outputRoute[i];
-			outputRoute[i] = holder;
-			if(ClosestHouse.calcDistance() < distanceHolder && i!=maxHolder) {
-				distanceHolder = ClosestHouse.calcDistance();
-				closestNum = i;
-			}
-			outputRoute = routeHolder;
-		}
-		if(outputRoute == routeHolder) {
-			System.out.println("TANWI");
-		}
-		
-		System.out.println(ClosestHouse.calcDistance());
-		House holder = outputRoute[closestNum];
-		outputRoute[closestNum] = outputRoute[maxHolder];
-		outputRoute[maxHolder] = holder;
-		System.out.println(ClosestHouse.calcDistance());
-	}
-	*/
 
 	
 	

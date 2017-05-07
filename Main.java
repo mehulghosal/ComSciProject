@@ -88,99 +88,42 @@ public class Main{
 		int lisaInputs = Integer.parseInt(records.get(records.size() - 1));
 		
 		
-		
-		//heyyyy tis working
 		ClosestHouse.inputRoute(inputs);
 		ClosestHouse.calcRoute();
 		House[] optimalRoute = ClosestHouse.getRoute();
 		double finalfinal = ClosestHouse.calcDistance();
+		Truck firstTruck = new Truck(optimalRoute, finalfinal, numberOfInputs, bartInputs, lisaInputs, true, true, true);		
+
 		
-		
-		
-		/*double distOriginal = SimulatedAnnealing.getDistance();
-		double distNext;
-		double distFinal = distOriginal;
-		double finalfinal = SimulatedAnnealing.getDistance();
-		
-		House[] holder = SimulatedAnnealing.getRoute();
-		House[] bestRoute = SimulatedAnnealing.getRoute();
-		
-		while(SimulatedAnnealing.getTemp() > 0.001){
-			
-			SimulatedAnnealing.randomChangeRoute();
-			SimulatedAnnealing.setRouteDistance();
-			distNext = SimulatedAnnealing.getDistance();
-			
-			if(distNext<distFinal){
-				distFinal = distNext;
-				holder = SimulatedAnnealing.getRoute();
-				if(distFinal<finalfinal) {
-					finalfinal = distFinal;
-					if(SimulatedAnnealing.getDistance()<finalfinal) {
-						bestRoute = SimulatedAnnealing.getRoute();
-					}
-				}
-			}
-			
-			else{
-				if(SimulatedAnnealing.acceptanceProbability(distFinal, distNext) > Math.random()) {
-					distFinal = distNext;
-					holder = SimulatedAnnealing.getRoute();
-				}
-				else {
-					SimulatedAnnealing.setRoute(holder);
-				}
-			}
-			
-			
-			SimulatedAnnealing.setTemperature(SimulatedAnnealing.getTemp() * (1 - 0.001));
-			
-			for(int i = 0; i<10; i++) {
-				SimulatedAnnealing.setRouteDistance();
-				SimulatedAnnealing.flipGreat();
-				SimulatedAnnealing.setRouteDistance();
-				if(SimulatedAnnealing.getDistance()<distFinal) {
-					holder = SimulatedAnnealing.getRoute();
-					distFinal = SimulatedAnnealing.getDistance();
-					if(distFinal<finalfinal) {
-						finalfinal = distFinal;
-					}
-				}
-				else {
-					SimulatedAnnealing.setRoute(holder);
-				}
-				SimulatedAnnealing.setRouteDistance();
-			//	System.out.println(SimulatedAnnealing.getDistance());
-			}
-			
-			System.out.println(distFinal);
-			
-			
-			
-		}
-		
-		System.out.println("original distance: "+ distOriginal);
-		System.out.println("final distance:" + distFinal);
-		System.out.println("The best distance was " + finalfinal + " feet");
+		/*this is for splitting the array
+		we're going to spilt the array into quadrants by x and y 
+		first put everything into an array list
+		and then transfer into an array for all of the computations
 		*/
 		
-		Truck firstTruck = new Truck(optimalRoute, finalfinal, numberOfInputs, bartInputs, lisaInputs, true, true, true);
 		
-		//this bit right here
-		int Bholder = 0;
-		int Lholder = 0;
-		for(int i =0; i < optimalRoute.length; i++){
+		List<House> firstList = null;		House[] firstArr = null;	boolean firstBart = false; 		boolean firstLisa = false;
+		List<House> secondList = null;		House[] secondArr = null;	boolean secondBart = false; 	boolean secondLisa = false;
+		List<House> thirdList = null;		House[] thirdArr = null;	boolean thirdBart = false; 		boolean thirdLisa = false;
+		List<House> fourthList = null;		House[] fourthArr = null;	boolean fourthBart = false; 	boolean fourthLisa = false;
+		List<House> fifthList = null;		House[] fifthArr = null;	boolean fifthBart = false; 		boolean fifthLisa = false;
+		List<House> sixthList = null;		House[]	sixthArr = null;	boolean sixthBart = false; 		boolean sixthLisa = false;
+		List<House> seventhList = null;		House[] seventhArr = null;	boolean seventhBart = false; 	boolean seventhLisa = false;
+		List<House> eightList = null;		House[] eightArr = null;	boolean eighthBart = false; 	boolean eighthLisa = false;
+		
+		double totalTime = 0; //sec
+		int amtTrucks = 1;
+		while(totalTime/3600 > 24) {
+			Truck[] trucks = new Truck[amtTrucks];
 			
-			if(optimalRoute[i].getX() == 2 && optimalRoute[i].getY() == 3){
-				Bholder = i;
-			}
-			else if(optimalRoute[i].getX() == 149 && optimalRoute[i].getY() == 33){
-				Lholder = i;
-			}
+			
+			
 			
 		}
 		
-		System.out.println("Bart is at index of " + Bholder + " Lisa is at index of " + Lholder);
+		
+		
+		
 		
 		
 		System.out.println(finalfinal);
