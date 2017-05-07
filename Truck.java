@@ -11,8 +11,10 @@ public class Truck {
 	private boolean lisa;
 	private boolean rental;
 	private int houses;
+	List<House> initialRoute;
 	
-	public Truck(House[] route, double dist, int numHouses, int bartIn, int lisaIn, boolean b, boolean l, boolean r) {
+	
+	public Truck(double dist, int numHouses, int bartIn, int lisaIn, boolean b, boolean l, boolean r) {
 		
 		truckRoute = route;
 		bartInputs = bartIn;
@@ -23,6 +25,10 @@ public class Truck {
 		distance = dist;
 		houses = numHouses;
 		
+	}
+	
+	public addToRoute(House house) {
+		initialRoute.add(house);	
 	}
 	
 	public double calcTime() {
