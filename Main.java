@@ -115,7 +115,40 @@ public class Main{
 		int amtTrucks = 1;
 		while(totalTime/3600 > 24) {
 			Truck[] trucks = new Truck[amtTrucks];
-			
+			int houseNum = numberOfInputs+2;
+			for(int i = 0; i<amtTrucks; i++) {
+				if(amtTrucks == 1) {
+					firstArr = optimalRoute;
+				}
+				if(amtTrucks == 2) {
+					if(i<=houseNum/2) {
+						firstList.add(optimalRoute[i]);
+					}
+					else {
+						
+					}
+				}
+				if(amtTrucks == 3) {
+					
+				}
+				if(amtTrucks == 4) {
+					
+				}
+				if(amtTrucks == 5) {
+					
+				}
+				if(amtTrucks == 6) {
+					
+				}
+				if(amtTrucks == 7) {
+					
+				}
+				if(amtTrucks == 8) {
+					
+				}
+				
+				
+			}
 			
 			
 			
