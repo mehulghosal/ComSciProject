@@ -4,31 +4,39 @@ public class Truck {
 	private double time = 0;
 	private double distance = 0;
 	private double cost = 0;
-	private House[] truckRoute;
 	private int bartInputs;
 	private int lisaInputs;
-	private boolean bart;
-	private boolean lisa;
+	private boolean bart = false;
+	private boolean lisa = false;
 	private boolean rental;
-	private int houses;
+	private int houses = 2;
+	private House[] truckRoute;
 	List<House> initialRoute;
 	
 	
-	public Truck(double dist, int numHouses, int bartIn, int lisaIn, boolean b, boolean l, boolean r) {
-		
-		truckRoute = route;
+	public Truck(int bartIn, int lisaIn, boolean rent) {
 		bartInputs = bartIn;
 		lisaInputs = lisaIn;
-		bart = b;
-		lisa = l;
-		rental = r;
-		distance = dist;
-		houses = numHouses;
-		
+		rental = rent;
 	}
 	
-	public addToRoute(House house) {
+	public void addHouse(House house) {
 		initialRoute.add(house);	
+		houses++;
+		if(house.getX() = 2000 && house.getY() = 600) {
+			bart = true;
+		}
+		if(house.getX() = 149000 && house.getY() = 6600) {
+			lisa = true;
+		}
+	}
+	
+	public void calcRoute() {
+		ClosestHouse.inputRoute(initialRoute);
+		ClosestHouse.calcRoute();
+		truckRoute = ClosestHouse.getRoute();
+		distance = ClosestHouse.getDistance();
+		ClosestHouse.reset();
 	}
 	
 	public double calcTime() {
