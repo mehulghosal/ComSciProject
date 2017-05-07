@@ -11,7 +11,7 @@ public class Truck {
 	private boolean rental;
 	private int houses = 2;
 	private House[] truckRoute;
-	ArrayList<House> initialRoute;
+	ArrayList<House> initialRoute = new ArrayList<House>();
 	
 	
 	public Truck(int bartIn, int lisaIn, boolean rent) {
