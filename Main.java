@@ -93,12 +93,12 @@ public class Main{
 			amtTrucks++;
 			maxTime = 0;
 			totalCost = 0;
-			int[] aveHolder = new int[50];
+			int[] aveHolder = new int[250];
 			int sum = 0;
-			double interval = 50.0/amtTrucks;
+			double interval = 250.0/amtTrucks;
 			double holder = interval;
 			int times = 0;
-			while(sum<50) {
+			while(sum<250) {
 				while(sum<holder) {
 					aveHolder[sum] = times;
 					sum++;
@@ -112,7 +112,7 @@ public class Main{
 			}
 			
 			for(int i = 0; i<inputs.length; i++) {
-				int toAve = (int)(((inputs[i].getY())/1000)-1);
+				int toAve = (int)(((inputs[i].getX())/200)-1);
 				int toTruck = aveHolder[toAve];
 				trucks[toTruck].addHouse(inputs[i]);
 			}
