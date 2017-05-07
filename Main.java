@@ -88,10 +88,10 @@ public class Main{
 		int lisaInputs = Integer.parseInt(records.get(records.size() - 1));
 		
 		int amtTrucks = 1;
-		double totalTime = 100000;
+		double maxTime = 100000;
 		double totalCost = 0;
-		while(totalTime/3600>24) {
-			totalTime = 0;
+		while(maxTime/3600>24) {
+			maxTime = 0;
 			totalCost = 0;
 			int[] aveHolder = new int[50];
 			int sum = 0;
@@ -113,13 +113,14 @@ public class Main{
 			
 			for(int i = 0; i<inputs.length; i++) {
 				int toAve = (int)(((inputs[i].getY())/1000)-1);
-				System.out.println(toAve);
 				int toTruck = aveHolder[toAve];
 				trucks[toTruck].addHouse(inputs[i]);
 			}
 			for(int i = 0; i<amtTrucks; i++) {
 				trucks[i].calcRoute();
-				totalTime+=trucks[i].calcTime();
+				if(trucks[i].calcTIme()>maxTime) {
+					maxTime = trucks[i].calcTime();	
+				}
 				totalCost+=trucks[i].calcCost();
 			}
 		}
