@@ -55,6 +55,12 @@ public class ClosestHouse{
 		}
 		return maxDistance;
 	}
+	
+	public static void reset() {
+		maxHolder = 0;
+		inputRoute = null;
+		outputRoute = null;
+	}
 
 	
 	
