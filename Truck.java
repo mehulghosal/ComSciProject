@@ -1,4 +1,4 @@
-import java.util.*
+import java.util.*;
 public class Truck {
 	
 	private double time = 0;
@@ -32,8 +32,8 @@ public class Truck {
 	}
 	
 	public void calcRoute() {
-		initialRoute.toArray(new House[initialRoute.size()])
-		ClosestHouse.inputRoute(initialRoute);
+		truckRoute = initialRoute.toArray(new House[initialRoute.size()]);
+		ClosestHouse.inputRoute(truckRoute);
 		ClosestHouse.calcRoute();
 		truckRoute = ClosestHouse.getRoute();
 		distance = ClosestHouse.calcDistance();
