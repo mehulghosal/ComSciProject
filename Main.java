@@ -13,7 +13,7 @@ public class Main{
 		List<String> records = new ArrayList<String>();
 		
 		try{
-			BufferedReader reader = new BufferedReader(new FileReader("cycle.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("cycle1.txt"));
 			String line;
 			while ((line = reader.readLine()) != null){
 				records.add(line);
@@ -37,7 +37,8 @@ public class Main{
 		int holderAve;
 		double houseAddress = 0;
 		
-		
+		System.out.println("Cycle number: " + cycleNumber);
+
 		
 		for(int i = 0; i < records.size() - 6; i++){
 			
@@ -89,6 +90,7 @@ public class Main{
 		int amtTrucks = 0;
 		double maxTime = 100000;
 		double totalCost = 0;
+		
 		while(maxTime/3600>24) {
 			amtTrucks++;
 			maxTime = 0;
@@ -108,7 +110,7 @@ public class Main{
 			}
 			Truck[] trucks = new Truck[amtTrucks];
 			for(int i = 0; i<amtTrucks; i++) {
-				trucks[i] = new Truck(bartInputs, lisaInputs, false);	
+				trucks[i] = new Truck(bartInputs, lisaInputs, true, 2);	
 			}
 			
 			for(int i = 0; i<inputs.length; i++) {
@@ -126,92 +128,11 @@ public class Main{
 			System.out.println(maxTime/3600);
 		}
 		
-		System.out.println("Cost is " + totalCost);
+		System.out.println("Cost is $" + totalCost);
 		System.out.println("Time in hours is " + maxTime/3600);
-		System.out.println("Needed " + amtTrucks + " trucks.");
+		System.out.println("Needed " + amtTrucks + " trucks");
 
 		
-		/*
-		ClosestHouse.inputRoute(inputs);
-		ClosestHouse.calcRoute();
-		House[] optimalRoute = ClosestHouse.getRoute();
-		double finalfinal = ClosestHouse.calcDistance();
-		Truck firstTruck = new Truck(optimalRoute, finalfinal, numberOfInputs, bartInputs, lisaInputs, true, true, true);		
-*/
-		
-		/*this is for splitting the array
-		we're going to spilt the array into quadrants by x and y 
-		first put everything into an array list
-		and then transfer into an array for all of the computations
-		*/
-		
-		
-		/*
-		List<House> firstList = null;		House[] firstArr = null;	boolean firstBart = false; 		boolean firstLisa = false;
-		List<House> secondList = null;		House[] secondArr = null;	boolean secondBart = false; 	boolean secondLisa = false;
-		List<House> thirdList = null;		House[] thirdArr = null;	boolean thirdBart = false; 		boolean thirdLisa = false;
-		List<House> fourthList = null;		House[] fourthArr = null;	boolean fourthBart = false; 	boolean fourthLisa = false;
-		List<House> fifthList = null;		House[] fifthArr = null;	boolean fifthBart = false; 		boolean fifthLisa = false;
-		List<House> sixthList = null;		House[]	sixthArr = null;	boolean sixthBart = false; 		boolean sixthLisa = false;
-		List<House> seventhList = null;		House[] seventhArr = null;	boolean seventhBart = false; 	boolean seventhLisa = false;
-		List<House> eightList = null;		House[] eightArr = null;	boolean eighthBart = false; 	boolean eighthLisa = false;
-		
-		double totalTime = 0; //sec
-		int amtTrucks = 1;
-		while(totalTime/3600 > 24) {
-			Truck[] trucks = new Truck[amtTrucks];
-			int houseNum = numberOfInputs+2;
-			for(int i = 0; i<amtTrucks; i++) {
-				if(amtTrucks == 1) {
-					firstList.add(optimalRoute[i]);
-				}
-				if(amtTrucks == 2) {
-					if(i<=houseNum/2) {
-						firstList.add(optimalRoute[i]);
-					}
-					else {
-						secondList.add(optimalRoute[i]);
-					}
-				}
-				if(amtTrucks == 3) {
-					
-				}
-				if(amtTrucks == 4) {
-					
-				}
-				if(amtTrucks == 5) {
-					
-				}
-				if(amtTrucks == 6) {
-					
-				}
-				if(amtTrucks == 7) {
-					
-				}
-				if(amtTrucks == 8) {
-					
-				}
-				
-				
-			}
-			
-			
-			
-		}*/
-		
-		
-		
-		
-		
-		
-		
-		/*
-		System.out.println(finalfinal);
-		System.out.println("Time is " + firstTruck.calcTime() + " in seconds, " + (firstTruck.calcTime()/3600) + " in hours.");
-		System.out.println("Cost is " + firstTruck.calcCost());
-		*/
-
-		//public Truck(House[] route, int numHouses, int bartIn, int lisaIn, boolean b, boolean l, boolean r) {
 		
 
 		

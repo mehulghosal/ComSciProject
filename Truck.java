@@ -12,12 +12,14 @@ public class Truck {
 	private int houses = 2;
 	private House[] truckRoute;
 	private ArrayList<House> initialRoute = new ArrayList<House>();
+	private int numOfWorkers;
 	
 	
-	public Truck(int bartIn, int lisaIn, boolean rent) {
+	public Truck(int bartIn, int lisaIn, boolean rent, int work) {
 		bartInputs = bartIn;
 		lisaInputs = lisaIn;
 		rental = rent;
+		numOfWorkers = work;
 	}
 	
 	public void addHouse(House house) {
@@ -44,12 +46,12 @@ public class Truck {
 		
 		time = 0;
 		time += (distance)/(100.0/3);
-		time += (houses - 2) * 60;
+		time += (houses - 2) * (60/numOfWorkers);
 		if(bart) {
-			time+=(bartInputs*30);
+			time+=(bartInputs*(30/numOfWorkers));
 		}
 		if(lisa) {
-			time+=(lisaInputs*30);
+			time+=(lisaInputs*(30/numOfWorkers));
 		}
 		return time;
 		
@@ -58,7 +60,7 @@ public class Truck {
 	public double calcCost() {
 		
 		
-		cost += (distance/1000) + ((int)(distance/5000))*10; //should fix this
+		cost += (distance/1000) + ((int)(distance/5000))*10;
 		
 		if(rental) {
 			cost+=15000;
@@ -66,10 +68,10 @@ public class Truck {
 		
 		for(int i = 1; i<=(time/3600); i++) {
 			if(i<=8) {
-				cost+=30;
+				cost+=30*numOfWorkers;
 			}
 			else {
-				cost+=45;
+				cost+=45*numOfWorkers;
 			}
 		}
 		return cost;
