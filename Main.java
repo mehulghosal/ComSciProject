@@ -3,29 +3,15 @@ import java.io.*;
 
 public class Main{
 	
+	private static int cycleNumber;
+	private static int trucks;
+	private static double cost;
+	private static double time;
+	
+	public static void algorithm(List<String> records){
+		
 
-	static public void main(String[] args){
-		
-		double moneySpent = 0;
-		double time = 0;//in seconds
-		
-		//this is for the input from the file
-		List<String> records = new ArrayList<String>();
-		
-		try{
-			BufferedReader reader = new BufferedReader(new FileReader("cycle1.txt"));
-			String line;
-			while ((line = reader.readLine()) != null){
-				records.add(line);
-			}
-			reader.close();
-		}
-		catch (Exception e){
-			System.err.format("Exception occurred trying to read '%s'.", "cycle.txt");
-			e.printStackTrace();
-		}
-		
-		int cycleNumber = Integer.parseInt(records.get(0)); //this is the first input -- the cycle number
+		cycleNumber = Integer.parseInt(records.get(0)); //this is the first input -- the cycle number
 		
 		int numberOfInputs = Integer.parseInt(records.get(1).replaceAll("[^0-9]", "")) + 2; //this is the total number of inputs
 		
@@ -37,8 +23,6 @@ public class Main{
 		int holderAve;
 		double houseAddress = 0;
 		
-		System.out.println("Cycle number: " + cycleNumber);
-
 		
 		for(int i = 0; i < records.size() - 6; i++){
 			
@@ -87,17 +71,17 @@ public class Main{
 		int bartInputs = Integer.parseInt(records.get(records.size() - 3));
 		int lisaInputs = Integer.parseInt(records.get(records.size() - 1));
 		
-		int amtTrucks = 0;
+		trucks = 0;
 		double maxTime = 100000;
 		double totalCost = 0;
 		
 		while(maxTime/3600>24) {
-			amtTrucks++;
+			trucks++;
 			maxTime = 0;
 			totalCost = 0;
 			int[] aveHolder = new int[250];
 			int sum = 0;
-			double interval = 250.0/amtTrucks;
+			double interval = 250.0/trucks;
 			double holder = interval;
 			int times = 0;
 			while(sum<250) {
@@ -108,33 +92,87 @@ public class Main{
 				holder+=interval;
 				times++;
 			}
-			Truck[] trucks = new Truck[amtTrucks];
-			for(int i = 0; i<amtTrucks; i++) {
-				trucks[i] = new Truck(bartInputs, lisaInputs, true, 2);	
+			Truck[] trucksArr = new Truck[trucks];
+			for(int i = 0; i<trucks; i++) {
+				trucksArr[i] = new Truck(bartInputs, lisaInputs, true, 2);	
 			}
 			
 			for(int i = 0; i<inputs.length; i++) {
 				int toAve = (int)(((inputs[i].getX())/200)-1);
 				int toTruck = aveHolder[toAve];
-				trucks[toTruck].addHouse(inputs[i]);
+				trucksArr[toTruck].addHouse(inputs[i]);
 			}
-			for(int i = 0; i<amtTrucks; i++) {
-				trucks[i].calcRoute();
-				if(trucks[i].calcTime()>maxTime) {
-					maxTime = trucks[i].calcTime();	
+			for(int i = 0; i< trucks ; i++) {
+				trucksArr[i].calcRoute();
+				if(trucksArr[i].calcTime()>maxTime) {
+					maxTime = trucksArr[i].calcTime();	
 				}
-				totalCost+=trucks[i].calcCost();
+				totalCost+=trucksArr[i].calcCost();
 			}
-			System.out.println(maxTime/3600);
 		}
 		
-		System.out.println("Cost is $" + totalCost);
-		System.out.println("Time in hours is " + maxTime/3600);
-		System.out.println("Needed " + amtTrucks + " trucks");
+		cost = totalCost;
+		time = maxTime/3600;
+		
+	}
+	
 
+	static public void main(String[] args){
+		
+		int totalTrucks = 0;
+		double totalTime = 0;
+		double totalCost = 0;
+		int[] truckArr = new int[10];
+		double[] timeArr = new double[10];
+		double[] costArr = new double[10];
+		String cycle;
 		
 		
-
+		for (int i = 0; i < 10; i++) {
+			
+			cycle = "cycle" + (i+1) + ".txt";
+					
+			//this is for the input from the file
+			List<String> records = new ArrayList<String>();
+			
+			try {
+				BufferedReader reader = new BufferedReader(new FileReader(cycle));
+				String line;
+				while ((line = reader.readLine()) != null) {
+					records.add(line);
+				}
+				reader.close();
+			} 
+			
+			catch (Exception e) {
+				System.err.format("Exception occurred trying to read '%s'.", "cycle.txt");
+				e.printStackTrace();
+			}
+			
+			algorithm(records);
+			totalTrucks += trucks;
+			timeArr[i] = time;
+			costArr[i] = cost;
+			truckArr[i] = trucks;
+			records.clear();
+			
+		}
+		
+		int avgTrucks = (int) totalTrucks/10;
+		costArr[0] += 100000*avgTrucks;
+		
+		for(int i = 0; i<10; i++){
+			
+			truckArr[i] = truckArr[i] - avgTrucks;
+			costArr[i] = costArr[i] - avgTrucks*15000;
+			totalCost += costArr[i];
+			totalTime += timeArr[i];
+			
+		}
+		
+		System.out.println("total cost is $" + totalCost);
+		System.out.println("total time is " + totalTime);
+		System.out.println("trucks bought is " + avgTrucks);
 		
 	}
 
