@@ -42,6 +42,10 @@ public class Truck {
 		ClosestHouse.reset();
 	}
 	
+	public double getDistance() {
+		return distance;
+	}
+	
 	public double calcTime() {
 		
 		time = 0;
@@ -60,7 +64,7 @@ public class Truck {
 	public double calcCost() {
 		
 		
-		cost += (distance/1000) + ((int)(distance/5000))*10;
+		cost += (distance/5000*5); //still have to add the cost if owned
 		
 		if(rental) {
 			cost+=15000;

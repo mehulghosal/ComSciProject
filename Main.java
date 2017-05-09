@@ -159,21 +159,22 @@ public class Main{
 		}
 		
 		int avgTrucks = (int) totalTrucks/10;
-		costArr[0] += 100000*avgTrucks;
 		
 		for(int i = 0; i<10; i++){
-			
-			truckArr[i] = truckArr[i] - avgTrucks;
+			truckArr[i] = truckArr[i] - avgTrucks; //basically becomes rented per day
 			costArr[i] = costArr[i] - avgTrucks*15000;
 			totalCost += costArr[i];
 			totalTime += timeArr[i];
 			
 		}
 		
+		totalCost+= 100000*avgTrucks;
+		
 		System.out.println("total cost is $" + totalCost);
 		System.out.println("total time is " + totalTime);
 		System.out.println("trucks bought is " + avgTrucks);
 		
+		//maybe make 'algorithm two' in which we plug in the amount of rented vs. nonrented trucks idk
 	}
 
 }
