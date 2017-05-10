@@ -22,6 +22,13 @@ public class Truck {
 		numOfWorkers = work;
 	}
 	
+	public House[] getRoute() {
+		return truckRoute;
+	}
+	public void setRoute(House[] theRoute) {
+		truckRoute = theRoute;
+	}
+	
 	public void addHouse(House house) {
 		initialRoute.add(house);	
 		houses++;
@@ -64,7 +71,7 @@ public class Truck {
 	public double calcCost() {
 		
 		
-		cost += (distance/5000*5); //still have to add the cost if owned
+		cost += (distance/5000*5)+distance/5000; //still have to add the cost if owned
 		
 		if(rental) {
 			cost+=15000;

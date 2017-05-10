@@ -7,6 +7,7 @@ public class Main{
 	private static int trucks;
 	private static double cost;
 	private static double time;
+	private static double distance;
 	
 	public static void algorithm(List<String> records){
 		
@@ -79,6 +80,7 @@ public class Main{
 			trucks++;
 			maxTime = 0;
 			totalCost = 0;
+			distance = 0;
 			int[] aveHolder = new int[250];
 			int sum = 0;
 			double interval = 250.0/trucks;
@@ -95,6 +97,7 @@ public class Main{
 			Truck[] trucksArr = new Truck[trucks];
 			for(int i = 0; i<trucks; i++) {
 				trucksArr[i] = new Truck(bartInputs, lisaInputs, true, 2);	
+				distance += trucksArr[i].getDistance();
 			}
 			
 			for(int i = 0; i<inputs.length; i++) {
@@ -104,6 +107,12 @@ public class Main{
 			}
 			for(int i = 0; i< trucks ; i++) {
 				trucksArr[i].calcRoute();
+				/*House[] x = trucksArr[i].getRoute();
+				SimulatedAnnealing.setRoute(x);
+				SimulatedAnnealing.calcRoute();
+				trucksArr[i].setRoute(SimulatedAnnealing.getRoute());
+				trucksArr[i].calcRoute();
+				*/
 				if(trucksArr[i].calcTime()>maxTime) {
 					maxTime = trucksArr[i].calcTime();	
 				}
@@ -113,6 +122,7 @@ public class Main{
 		
 		cost = totalCost;
 		time = maxTime/3600;
+		
 		
 	}
 	
