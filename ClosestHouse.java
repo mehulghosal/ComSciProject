@@ -5,16 +5,19 @@ public class ClosestHouse{
 	
 	private static House[] inputRoute;
 	private static House[] outputRoute;
-	private static int maxHolder;
+	private static int greatestHolder;
+	private static double greatestDistance;
+	private static double routeDistance;
 	
 	public static void inputRoute(House[] inputs) {
 		inputRoute = inputs;	
 	}
+	
 	public static House[] getRoute() {
 		return outputRoute;
 	}
-	public static int getMaxHolder() {
-		return maxHolder;
+	public static void setRoute(House[] houses) {
+		outputRoute = houses;
 	}
 	
 	public static void calcRoute() {
@@ -37,30 +40,53 @@ public class ClosestHouse{
 
 	public static double calcDistance() {
 		double distance = 0;
+		greatestDistance = 0;
+		greatestHolder = 0;
+	
 		for(int i = 0; i<outputRoute.length-2; i++) {
-			distance+=outputRoute[i].distance(outputRoute[i+1]);
+			double holdDist = outputRoute[i].distance(outputRoute[i+1]);
+			distance+=holdDist;
+			if(holdDist>greatestDistance) {
+				greatestDistance = holdDist;
+				greatestHolder = i;
+			}
 		}
-
+		
+		routeDistance = distance;
 		return distance;
 	}
 	
-	public static double getMaxDistance() {
-		double maxDistance = 0;
-		maxHolder = 0;
-		for(int i = 0; i<outputRoute.length-2; i++) {
-			if(outputRoute[i].distance(outputRoute[i+1])>maxDistance) {
-				maxDistance = outputRoute[i].distance(outputRoute[i+1]);
-				maxHolder = i;
-			}
-		}
-		return maxDistance;
-	}
 	
 	public static void reset() {
-		maxHolder = 0;
 		inputRoute = null;
 		outputRoute = null;
+		greatestHolder = 0;
+		greatestDistance = 0;
+		routeDistance = 0;
 	}
+	
+	public static void flipRandom() {
+		House[] holderRoute = outputRoute;
+		double optDistance = routeDistance;
+		int number = 0;
+		while(number==0 || number==outputRoute.length-1) {
+			number = (int)(Math.random()*(outputRoute.length-1));
+		}
+		int number2 = 0;
+		while(number2==0 || number2==outputRoute.length-1) {
+			number2 = (int)(Math.random()*(outputRoute.length-1));
+		}
+		House holder = outputRoute[number];
+		outputRoute[number] = outputRoute[number2];
+		outputRoute[number2] = holder;
+		ClosestHouse.calcDistance();
+		if(routeDistance>optDistance) {
+			outputRoute = holderRoute;
+			ClosestHouse.calcDistance();
+		}
+	}
+	
+
 
 	
 	
