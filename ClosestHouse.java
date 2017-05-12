@@ -17,7 +17,7 @@ public class ClosestHouse{
 		return outputRoute;
 	}
 	public static void setRoute(House[] houses) {
-		outputRoute = houses;
+		outputRoute = houses.clone();
 	}
 	
 	public static void calcRoute() {
@@ -66,23 +66,35 @@ public class ClosestHouse{
 	}
 	
 	public static void flipRandom() {
+		ClosestHouse.calcDistance();
+		System.out.println(routeDistance);
 		House[] holderRoute = outputRoute;
 		double optDistance = routeDistance;
 		int number = 0;
+		
 		while(number==0 || number==outputRoute.length-1) {
+			
 			number = (int)(Math.random()*(outputRoute.length-1));
+			
 		}
+		
 		int number2 = 0;
+		
 		while(number2==0 || number2==outputRoute.length-1) {
+		
 			number2 = (int)(Math.random()*(outputRoute.length-1));
+		
 		}
 		House holder = outputRoute[number];
 		outputRoute[number] = outputRoute[number2];
 		outputRoute[number2] = holder;
 		ClosestHouse.calcDistance();
+		
 		if(routeDistance>optDistance) {
-			outputRoute = holderRoute;
+		
+			ClosestHouse.setRoute(holderRoute);
 			ClosestHouse.calcDistance();
+		
 		}
 	}
 	

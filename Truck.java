@@ -44,9 +44,9 @@ public class Truck {
 		truckRoute = initialRoute.toArray(new House[initialRoute.size()]);
 		ClosestHouse.inputRoute(truckRoute);
 		ClosestHouse.calcRoute();
-		for(int i = 0; i<100; i++) {
+		/*for(int i = 0; i<10; i++) {
 			ClosestHouse.flipRandom();
-		}
+		}*/
 		truckRoute = ClosestHouse.getRoute();
 		distance = ClosestHouse.calcDistance();
 		ClosestHouse.reset();

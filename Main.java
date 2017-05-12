@@ -96,7 +96,7 @@ public class Main{
 			}
 			Truck[] trucksArr = new Truck[trucks];
 			for(int i = 0; i<trucks; i++) {
-				trucksArr[i] = new Truck(bartInputs, lisaInputs, true, 2);	
+				trucksArr[i] = new Truck(bartInputs, lisaInputs, true, 5);	
 				distance += trucksArr[i].getDistance();
 			}
 			
@@ -164,8 +164,7 @@ public class Main{
 			timeArr[i] = time;
 			costArr[i] = cost;
 			truckArr[i] = trucks;
-			records.clear();
-			
+			records.clear();			
 		}
 		
 		int avgTrucks = (int) totalTrucks/10;
@@ -180,9 +179,40 @@ public class Main{
 		
 		totalCost+= 100000*avgTrucks;
 		
-		System.out.println("total cost is $" + totalCost);
-		System.out.println("total time is " + totalTime);
-		System.out.println("trucks bought is " + avgTrucks);
+		//make it look pretty
+		while(true){
+			
+			System.out.println("What would you like to view?");
+			System.out.println("Time(1)"); System.out.println("Cost(2)"); System.out.println("Number of Trucks(3)"); System.out.println("Quit(0)");
+			
+			Scanner s = new Scanner(System.in);
+			String in = s.nextLine();
+			
+			if(in.equals("1")){
+				System.out.println("Total time: " + totalTime + " hours");
+				for(int i = 0; i<10; i++){
+					System.out.println("Time is: " + timeArr[i] + " in hours for cycle " + (i+1));
+				}
+				
+			}
+			else if(in.equals("2")){
+				System.out.println("Total cost: $" + totalCost);
+				System.out.println("Cost for buying trucks is $" + (avgTrucks*100000));
+				for(int i = 0; i<10; i++){
+					System.out.println("Cost is: " + costArr[i] + " in dollars for cycle " + (i+1));
+				}
+			}
+			else if(in.equals("3")){
+				System.out.println("Total number of trucks: " + totalTrucks + ". The number of trucks bought was " + avgTrucks);
+				for(int i = 0; i<10; i++){
+					System.out.println("Number of trucks rented is: " + truckArr[i] + " for cycle " + (i+1));
+				}
+			}
+			else if(in.equals("0")){
+				break;
+			}
+			
+		}
 		
 		//maybe make 'algorithm two' in which we plug in the amount of rented vs. nonrented trucks idk
 	}
