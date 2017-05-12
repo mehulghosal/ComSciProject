@@ -81,7 +81,8 @@ public class Main{
 			maxTime = 0;
 			totalCost = 0;
 			distance = 0;
-			int[] aveHolder = new int[250];
+			Truck[] trucksArr = new Truck[trucks];
+			/*int[] aveHolder = new int[250];
 			int sum = 0;
 			double interval = 250.0/trucks;
 			double holder = interval;
@@ -94,7 +95,6 @@ public class Main{
 				holder+=interval;
 				times++;
 			}
-			Truck[] trucksArr = new Truck[trucks];
 			for(int i = 0; i<trucks; i++) {
 				trucksArr[i] = new Truck(bartInputs, lisaInputs, true, 5);	
 				distance += trucksArr[i].getDistance();
@@ -104,6 +104,18 @@ public class Main{
 				int toAve = (int)(((inputs[i].getX())/200)-1);
 				int toTruck = aveHolder[toAve];
 				trucksArr[toTruck].addHouse(inputs[i]);
+			}
+			*/
+			if(trucks==2) {
+				for(int i = 0; i<inputs.length; i++) {
+					int toAve = (int)((inputs[i].getX()/200)-1);
+					if(toAve>25) {
+						trucksArr[0].addHouse(inputs[i]);
+					}
+					else {
+						trucksArr[1].addHouse(inputs[i]);
+					}
+				}
 			}
 			for(int i = 0; i< trucks ; i++) {
 				trucksArr[i].calcRoute();
