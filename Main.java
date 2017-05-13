@@ -244,17 +244,17 @@ public class Main{
 			String in = s.nextLine();
 			
 			if(in.equals("1")){
-				System.out.println("Total time: " + totalTime + " hours");
+				System.out.println("Total time: " + Math.round(totalTime*100)/100.0 + " hours");
 				for(int i = 0; i<10; i++){
-					System.out.println("Time is: " + timeArr[i] + " in hours for cycle " + (i+1));
+					System.out.println("Time is: " + Math.round(timeArr[i]*100)/100.0 + " in hours for cycle " + (i+1));
 				}
 				
 			}
 			else if(in.equals("2")){
-				System.out.println("Total cost: $" + totalCost);
+				System.out.println("Total cost: $" + Math.round(totalCost*100)/100.0);
 				System.out.println("Cost for buying trucks is $" + (avgTrucks*100000));
 				for(int i = 0; i<10; i++){
-					System.out.println("Cost is: " + costArr[i] + " in dollars for cycle " + (i+1));
+					System.out.println("Cost is: $" + Math.round(costArr[i]*100)/100.0 + " for cycle " + (i+1));
 				}
 			}
 			else if(in.equals("3")){
