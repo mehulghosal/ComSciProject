@@ -74,7 +74,7 @@ public class Truck {
 	public double calcCost() {
 		
 		
-		cost += (distance/5000*5)+distance/5000; //still have to add the cost if owned
+		cost += (distance/5000*5)+distance/500; //still have to add the cost if owned
 		
 		if(rental) {
 			cost+=15000;

@@ -24,7 +24,6 @@ public class Main{
 		int holderAve;
 		double houseAddress = 0;
 		
-		
 		for(int i = 0; i < records.size() - 6; i++){
 			
 			holderArray = records.get(i+2).split(",");//splits every line up by commas
@@ -95,10 +94,18 @@ public class Main{
 				holder+=interval;
 				times++;
 			}
-			for(int i = 0; i<trucks; i++) {
-				trucksArr[i] = new Truck(bartInputs, lisaInputs, true, 5);	
-				distance += trucksArr[i].getDistance();
+			*/
+			if(cycleNumber!=6) {	
+				for(int i = 0; i<trucks; i++) {
+					trucksArr[i] = new Truck(bartInputs, lisaInputs, true, 5);	
+				}
 			}
+			else {
+				for(int i = 0; i<trucks; i++) {
+					trucksArr[i] = new Truck(bartInputs, lisaInputs, true, 7);	
+				}
+			}
+			/*
 			
 			for(int i = 0; i<inputs.length; i++) {
 				int toAve = (int)(((inputs[i].getX())/200)-1);
@@ -106,9 +113,14 @@ public class Main{
 				trucksArr[toTruck].addHouse(inputs[i]);
 			}
 			*/
+			if(trucks==1) {
+				for(int i = 0; i<inputs.length; i++) {
+					trucksArr[0].addHouse(inputs[i]);
+				}
+			}
 			if(trucks==2) {
 				for(int i = 0; i<inputs.length; i++) {
-					int toAve = (int)((inputs[i].getX()/200)-1);
+					double toAve = ((inputs[i].getY()/1000)-1);
 					if(toAve>25) {
 						trucksArr[0].addHouse(inputs[i]);
 					}
@@ -117,6 +129,37 @@ public class Main{
 					}
 				}
 			}
+			if(trucks==3) {
+				for(int i = 0; i<inputs.length; i++) {
+					double toAve = ((inputs[i].getY()/1000)-1);
+					if(toAve<16) {
+						trucksArr[0].addHouse(inputs[i]);
+					}
+					else if(toAve>=16 && toAve<33) {
+						trucksArr[1].addHouse(inputs[i]);
+					}
+					else {
+						trucksArr[2].addHouse(inputs[i]);
+					}
+				}
+			}
+			/*if(trucks==4) {
+				for(int i = 0; i<inputs.length; i++) {
+					double toAve = ((inputs[i].getY()/1000)-1);
+					if(toAve<=12) {
+						trucksArr[0].addHouse(inputs[i]);
+					}
+					else if(toAve>12 && toAve<=25) {
+						trucksArr[1].addHouse(inputs[i]);
+					}
+					else if(toAve>25 && toAve<=37){
+						trucksArr[2].addHouse(inputs[i]);
+					}
+					else {
+						trucksArr[3].addHouse(inputs[i]);
+					}
+				}
+			}*/
 			for(int i = 0; i< trucks ; i++) {
 				trucksArr[i].calcRoute();
 				/*House[] x = trucksArr[i].getRoute();
