@@ -66,9 +66,6 @@ public class ClosestHouse{
 	}
 	
 	public static void flipRandom() {
-		ClosestHouse.calcDistance();
-		House[] holderRoute = outputRoute.clone();
-		double optDistance = routeDistance;
 		int number = 0;
 		
 		while(number==0 || number==outputRoute.length-1) {
@@ -78,22 +75,27 @@ public class ClosestHouse{
 		}
 		int number2 = 0;
 		
-		while(number2==0 || number2==outputRoute.length-1) {
+		while(number2==0 || number2==outputRoute.length-1 || number2==number+1 || number2==number-1) {
 		
 			number2 = (int)(Math.random()*(outputRoute.length-1));
 		
 		}
-		House holder = outputRoute[number];
-		outputRoute[number] = outputRoute[number2];
-		outputRoute[number2] = holder;
-		ClosestHouse.calcDistance();
 		
-		if(routeDistance>optDistance) {
+		double distanceA = 0;
+		double distanceB = 0;
 		
-			ClosestHouse.setRoute(holderRoute);
-			ClosestHouse.calcDistance();
+		distanceA+=outputRoute[number-1].distance(outputRoute[number]) + outputRoute[number].distance(outputRoute[number+1]);
+		distanceA+=outputRoute[number2-1].distance(outputRoute[number2]) + outputRoute[number2].distance(outputRoute[number2+1]);
+	
+		distanceB+=outputRoute[number2-1].distance(outputRoute[number])+outputRoute[number].distance(outputRoute[number2+1]);
+		distanceB+=outputRoute[number-1].distance(outputRoute[number2])+outputRoute[number2].distance(outputRoute[number+1]);
 		
-		}
+		if(distanceB<distanceA) {
+			House holder = outputRoute[number];
+			outputRoute[number] = outputRoute[number2];
+			outputRoute[number2] = holder;
+		}	
+		
 	}
 	
 	public static void flipGreat() {
@@ -104,22 +106,25 @@ public class ClosestHouse{
 		
 		int number2 = 0;
 		
-		while(number2==0 || number2==outputRoute.length-1) {
+		while(number2==0 || number2==outputRoute.length-1 || number2==number+1 || number2==number-1) {
 		
 			number2 = (int)(Math.random()*(outputRoute.length-1));
 		
 		}
-		House holder = outputRoute[number];
-		outputRoute[number] = outputRoute[number2];
-		outputRoute[number2] = holder;
-		ClosestHouse.calcDistance();
+		double distanceA = 0;
+		double distanceB = 0;
 		
-		if(routeDistance>optDistance) {
+		distanceA+=outputRoute[number-1].distance(outputRoute[number]) + outputRoute[number].distance(outputRoute[number+1]);
+		distanceA+=outputRoute[number2-1].distance(outputRoute[number2]) + outputRoute[number2].distance(outputRoute[number2+1]);
+	
+		distanceB+=outputRoute[number2-1].distance(outputRoute[number])+outputRoute[number].distance(outputRoute[number2+1]);
+		distanceB+=outputRoute[number-1].distance(outputRoute[number2])+outputRoute[number2].distance(outputRoute[number+1]);
 		
-			ClosestHouse.setRoute(holderRoute);
-			ClosestHouse.calcDistance();
-		
-		}
+		if(distanceB<distanceA) {
+			House holder = outputRoute[number];
+			outputRoute[number] = outputRoute[number2];
+			outputRoute[number2] = holder;
+		}	
 	}
 	
 	public static void twoOpt() {
