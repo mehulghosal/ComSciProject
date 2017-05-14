@@ -76,7 +76,6 @@ public class ClosestHouse{
 			number = (int)(Math.random()*(outputRoute.length-1));
 			
 		}
-		
 		int number2 = 0;
 		
 		while(number2==0 || number2==outputRoute.length-1) {
@@ -125,55 +124,35 @@ public class ClosestHouse{
 	
 	public static void twoOpt() {
 		ClosestHouse.calcDistance();
-		for(int i = 0; i<outputRoute.length-1; i++) {
-			for(int j = i+1; j<outputRoute.length-2-i; j++) {
-				House[] holderRoute = outputRoute.clone();
-				
-				double distanceHolder = 0;
-				
-				if(i!=0) {
-					distanceHolder+= outputRoute[i-1].distance(outputRoute[i]);
+		boolean go = true;
+		while(go) {
+			go = false;
+			for(int i = 1; i<outputRoute.length-1; i++) {
+				for(int j = i+2; j<outputRoute.length-2-i; j++) {								
+					
+					double distanceA = 0;
+					double distanceB = 0;
+					
+					distanceA+=outputRoute[i-1].distance(outputRoute[i]) + outputRoute[i].distance(outputRoute[i+1]);
+					distanceA+=outputRoute[j-1].distance(outputRoute[j]) + outputRoute[j].distance(outputRoute[j+1]);
+					
+					distanceB+=outputRoute[i-1].distance(outputRoute[j])+outputRoute[j].distance(outputRoute[i+1]);
+					distanceB+=outputRoute[j-1].distance(outputRoute[i])+outputRoute[i].distance(outputRoute[j+1]);
+					
+					if(distanceB<distanceA) {
+						House holder = outputRoute[i];	
+						outputRoute[i] = outputRoute[j];
+						outputRoute[j] = holder;
+						go = true;
+					}
+					
+					
+					
+					
 				}
 				
-				if(i!=outputRoute.length-1) {
-					distanceHolder+=outputRoute[i].distance(outputRoute[i+1]);
-				}
-				
-				if(j!=0) {
-					distanceHolder+= outputRoute[j-1].distance(outputRoute[j]);
-				}
-				
-				if(j!=outputRoute.length-1) {
-					distanceHolder+=outputRoute[j].distance(outputRoute[j+1]);
-				}
-				
-				House holder = outputRoute[i];
-				outputRoute[i] = outputRoute[j];
-				outputRoute[j] = holder;
-				
-				double newDistance = 0;
-				
-				if(i!= 0) {
-					newDistance+=outputRoute[i-1].distance(outputRoute[i]);
-				}
-				if(i!=outputRoute.length-1) {
-					newDistance+=outputRoute[i].distance(outputRoute[i+1]);
-				}
-				if(j!=0){
-					newDistance+= outputRoute[j-1].distance(outputRoute[j]);
-				}
-				if(j!=outputRoute.length-1) {
-					newDistance+=outputRoute[j].distance(outputRoute[j+1]);
-				}
-				
-				if(distanceHolder>newDistance) {
-					ClosestHouse.setRoute(holderRoute);
-				}
-			
 			}
-			System.out.println(i);
 		}
-		System.out.println("ok");
 		ClosestHouse.calcDistance();
 	}
 	
