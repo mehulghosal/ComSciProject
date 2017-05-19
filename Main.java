@@ -81,20 +81,7 @@ public class Main{
 			totalCost = 0;
 			distance = 0;
 			Truck[] trucksArr = new Truck[trucks];
-			/*int[] aveHolder = new int[250];
-			int sum = 0;
-			double interval = 250.0/trucks;
-			double holder = interval;
-			int times = 0;
-			while(sum<250) {
-				while(sum<holder) {
-					aveHolder[sum] = times;
-					sum++;
-				}
-				holder+=interval;
-				times++;
-			}
-			*/
+
 			if(cycleNumber!=6) {	
 				for(int i = 0; i<trucks; i++) {
 					trucksArr[i] = new Truck(bartInputs, lisaInputs, true, 5);	
@@ -105,14 +92,7 @@ public class Main{
 					trucksArr[i] = new Truck(bartInputs, lisaInputs, true, 7);	
 				}
 			}
-			/*
-			
-			for(int i = 0; i<inputs.length; i++) {
-				int toAve = (int)(((inputs[i].getX())/200)-1);
-				int toTruck = aveHolder[toAve];
-				trucksArr[toTruck].addHouse(inputs[i]);
-			}
-			*/
+
 			if(trucks==1) {
 				for(int i = 0; i<inputs.length; i++) {
 					trucksArr[0].addHouse(inputs[i]);
@@ -143,31 +123,9 @@ public class Main{
 					}
 				}
 			}
-			/*if(trucks==4) {
-				for(int i = 0; i<inputs.length; i++) {
-					double toAve = ((inputs[i].getY()/1000)-1);
-					if(toAve<=12) {
-						trucksArr[0].addHouse(inputs[i]);
-					}
-					else if(toAve>12 && toAve<=25) {
-						trucksArr[1].addHouse(inputs[i]);
-					}
-					else if(toAve>25 && toAve<=37){
-						trucksArr[2].addHouse(inputs[i]);
-					}
-					else {
-						trucksArr[3].addHouse(inputs[i]);
-					}
-				}
-			}*/
+
 			for(int i = 0; i< trucks ; i++) {
 				trucksArr[i].calcRoute();
-				/*House[] x = trucksArr[i].getRoute();
-				SimulatedAnnealing.setRoute(x);
-				SimulatedAnnealing.calcRoute();
-				trucksArr[i].setRoute(SimulatedAnnealing.getRoute());
-				trucksArr[i].calcRoute();
-				*/
 				if(trucksArr[i].calcTime()>maxTime) {
 					maxTime = trucksArr[i].calcTime();	
 				}
@@ -234,7 +192,6 @@ public class Main{
 		
 		totalCost+= 100000*avgTrucks;
 		
-		//make it look pretty
 		while(true){
 			
 			System.out.println("What would you like to view?");
@@ -269,7 +226,6 @@ public class Main{
 			
 		}
 		
-		//maybe make 'algorithm two' in which we plug in the amount of rented vs. nonrented trucks idk
 	}
 
 }

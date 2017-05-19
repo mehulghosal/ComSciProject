@@ -47,10 +47,9 @@ public class Truck {
 		for(int i = 0; i<100; i++) {
 			ClosestHouse.flipRandom();
 		}
-		for(int i = 0; i<100000; i++) {
+		for(int i = 0; i<10000; i++) {
 			ClosestHouse.flipGreat();
 		}
-		//ClosestHouse.twoOpt();
 		truckRoute = ClosestHouse.getRoute();
 		distance = ClosestHouse.calcDistance();
 		ClosestHouse.reset();
@@ -78,7 +77,7 @@ public class Truck {
 	public double calcCost() {
 		
 		
-		cost += (distance/5000*5)+distance/500; //still have to add the cost if owned
+		cost += (distance/5000*5)+distance/500;
 		
 		if(rental) {
 			cost+=15000;
